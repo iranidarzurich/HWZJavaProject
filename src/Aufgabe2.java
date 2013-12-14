@@ -27,7 +27,7 @@ public class Aufgabe2 {
 			a.Division(a.zaehler, a.nenner);
 		} catch (ArithmeticException ae) {
 			System.out
-					.println("Fehler bei der Division: java.lang.ArithmeticException:Fehler: Der Nenner hat den Wert 0");
+					.println("Mehdi bei der Division: java.lang.ArithmeticException:Fehler: Der Nenner hat den Wert 0");
 
 		}
 
