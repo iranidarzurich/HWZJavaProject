@@ -6,7 +6,7 @@
 public class Palindrom2Mehdi {
 	String zeichenkette = "adida";
 
-	public void Ueberprüfen(String s1, String s2) {
+	public void Ueberpruefen(String s1, String s2) {
 		if (s2.equals(s1)) {
 			System.out.println("Palindrom");
 		} else {
@@ -19,9 +19,9 @@ public class Palindrom2Mehdi {
 		Palindrom2Mehdi z = new Palindrom2Mehdi();
 		StringBuffer str = new StringBuffer(z.zeichenkette);
 		StringBuffer s = str.reverse();
-		String wort = s.toString();
-		String palondrom = z.zeichenkette.toString();
+		String palindrom = s.toString();
+		String wort = z.zeichenkette.toString();
 
-		z.Ueberprüfen(wort, palondrom);
+		z.Ueberpruefen(wort, palindrom);
 	}
 }
