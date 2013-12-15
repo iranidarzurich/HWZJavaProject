@@ -5,14 +5,14 @@
  * 
  */
 public class Palindrom {
-	String zeichenkette = "adida";
+
+	static String zeichenkette = "adida";
 
 	public static void main(String[] args) {
-		Palindrom p = new Palindrom();
-		StringBuffer str = new StringBuffer(p.zeichenkette);
+		StringBuffer str = new StringBuffer(zeichenkette);
 		StringBuffer s = str.reverse();
 		String s1 = s.toString();
-		String s2 = p.zeichenkette.toString();
+		String s2 = zeichenkette.toString();
 
 		if (s2.equals(s1)) {
 			System.out.println("Palindrom");
