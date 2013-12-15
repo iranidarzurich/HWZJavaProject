@@ -5,19 +5,19 @@
  * 
  */
 public class Palindrom2 {
-	static String zeichenkette = "HallaH";
+	static String zeichenkette = "adida";
 
 	public static void main(String[] args) {
 		StringBuffer str = new StringBuffer(zeichenkette);
-		String s = str.toString();
-		System.out.println("String "+s);
-		System.out.println("StringBuffer "+zeichenkette);
+		StringBuffer s = str.reverse();
+		String s1 = s.toString();
+		String s2 = zeichenkette.toString();
 
-//		if (zeichenkette == s) {
-//			System.out.println("Palindrom");
-//		} else {
-//			System.out.println("Kein Palindrom");
-//		}
+		if (s2.equals(s1)) {
+			System.out.println("Palindrom");
+		} else {
+			System.out.println("Kein Palindrom");
+		}
 
 	}
 }
