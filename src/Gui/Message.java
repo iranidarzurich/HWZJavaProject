@@ -18,6 +18,11 @@ import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JProgressBar;
+import javax.swing.JSpinner;
+import javax.swing.JTable;
+import javax.swing.JScrollBar;
+import javax.swing.JPasswordField;
+import javax.swing.JLabel;
 
 /**
  * 
@@ -28,6 +33,8 @@ public class Message extends JFrame {
 	private JTextField txt_Zahl1;
 	private JTextField txt_Zahl2;
 	private JTextField txt_Ergebnis;
+	private JPasswordField passwordField;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -89,19 +96,36 @@ public class Message extends JFrame {
 		txt_Ergebnis.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Email");
-		btnNewButton.setBounds(153, 52, 120, 90);
+		btnNewButton.setBounds(221, 119, 120, 90);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("SMS");
-		btnNewButton_1.setBounds(306, 52, 120, 90);
+		btnNewButton_1.setBounds(445, 119, 120, 90);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("MMS");
-		btnNewButton_2.setBounds(153, 154, 120, 90);
+		btnNewButton_2.setBounds(221, 308, 120, 90);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Print");
-		btnNewButton_3.setBounds(306, 154, 120, 90);
+		btnNewButton_3.setBounds(445, 308, 120, 90);
 		contentPane.add(btnNewButton_3);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(293, 88, 96, 20);
+		contentPane.add(passwordField);
+		
+		JLabel lblLogin = new JLabel("Username :");
+		lblLogin.setBounds(221, 57, 62, 37);
+		contentPane.add(lblLogin);
+		
+		JLabel lblPassword = new JLabel("Password :");
+		lblPassword.setBounds(221, 91, 46, 14);
+		contentPane.add(lblPassword);
+		
+		textField = new JTextField();
+		textField.setBounds(293, 65, 96, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
 	}
 }
