@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JProgressBar;
 
 /**
  * 
@@ -49,7 +50,7 @@ public class Message extends JFrame {
 	 */
 	public Message() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(370,150, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -69,7 +70,7 @@ public class Message extends JFrame {
 			
 			}
 		});
-		btnAddieren.setBounds(10, 42, 89, 23);
+		btnAddieren.setBounds(10, 208, 89, 23);
 		contentPane.add(btnAddieren);
 		
 		txt_Zahl1 = new JTextField();
@@ -86,5 +87,21 @@ public class Message extends JFrame {
 		txt_Ergebnis.setBounds(221, 11, 86, 20);
 		contentPane.add(txt_Ergebnis);
 		txt_Ergebnis.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Email");
+		btnNewButton.setBounds(153, 52, 120, 90);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("SMS");
+		btnNewButton_1.setBounds(306, 52, 120, 90);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("MMS");
+		btnNewButton_2.setBounds(153, 154, 120, 90);
+		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Print");
+		btnNewButton_3.setBounds(306, 154, 120, 90);
+		contentPane.add(btnNewButton_3);
 	}
 }
