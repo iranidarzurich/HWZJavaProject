@@ -30,22 +30,20 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.FlowLayout;
 import javax.swing.JLayeredPane;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 
 /**
  * 
  */
 public class Message extends JFrame {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
+	private JTextField textEmailAbsender;
+	private JTextField textEmailEmpfaenger;
+	private JTextField textEmailBetreff;
+	private JTextField textSmsAbsender;
+	private JTextField textSmsEmpfaenger;
+	private JTextField textMmsAbsender;
+	private JTextField textMmsEmpfaenger;
 
 	/**
 	 * Launch the application.
@@ -68,7 +66,7 @@ public class Message extends JFrame {
 	 */
 	public Message() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(370,150, 450, 500);
+		setBounds(370,150, 451, 429);
 		setTitle("New Software");
 		getContentPane().setLayout(null);
 		
@@ -80,66 +78,63 @@ public class Message extends JFrame {
 		tabbedPane.addTab("Email", null, panelEmail, null);
 		panelEmail.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(84, 11, 86, 20);
-		panelEmail.add(textField);
-		textField.setColumns(10);
+		textEmailAbsender = new JTextField();
+		textEmailAbsender.setBounds(126, 11, 86, 20);
+		panelEmail.add(textEmailAbsender);
+		textEmailAbsender.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(84, 42, 86, 20);
-		panelEmail.add(textField_1);
+		textEmailEmpfaenger = new JTextField();
+		textEmailEmpfaenger.setColumns(10);
+		textEmailEmpfaenger.setBounds(126, 42, 86, 20);
+		panelEmail.add(textEmailEmpfaenger);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(84, 73, 86, 20);
-		panelEmail.add(textField_2);
+		textEmailBetreff = new JTextField();
+		textEmailBetreff.setColumns(10);
+		textEmailBetreff.setBounds(126, 73, 86, 20);
+		panelEmail.add(textEmailBetreff);
 		
 		JLabel labelAbsender = new JLabel("Absender");
 		labelAbsender.setBounds(10, 14, 46, 14);
 		panelEmail.add(labelAbsender);
 		
-		JLabel lblEmpfnger = new JLabel("Empfänger");
-		lblEmpfnger.setBounds(10, 45, 46, 14);
+		JLabel lblEmpfnger = new JLabel("Empfaenger");
+		lblEmpfnger.setBounds(10, 45, 86, 14);
 		panelEmail.add(lblEmpfnger);
 		
-		JLabel label_1 = new JLabel("Empfänger");
-		label_1.setBounds(10, 76, 46, 14);
-		panelEmail.add(label_1);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(36, 117, 359, 131);
-		panelEmail.add(textField_3);
-		textField_3.setColumns(10);
+		JLabel lblEmailBetreff = new JLabel("Betreff");
+		lblEmailBetreff.setBounds(10, 76, 86, 14);
+		panelEmail.add(lblEmailBetreff);
 		
 		JButton btnSenden = new JButton("Senden");
 		btnSenden.setBounds(306, 259, 89, 23);
 		panelEmail.add(btnSenden);
 		
+		JTextArea textEmail = new JTextArea();
+		textEmail.setBounds(94, 104, 205, 106);
+		panelEmail.add(textEmail);
+		
 		JPanel panelSMS = new JPanel();
+		panelSMS.setBackground(new Color(102, 205, 170));
 		tabbedPane.addTab("SMS", null, panelSMS, null);
 		panelSMS.setLayout(null);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(151, 11, 86, 20);
-		panelSMS.add(textField_4);
-		textField_4.setColumns(10);
+		textSmsAbsender = new JTextField();
+		textSmsAbsender.setToolTipText("+41 78 888 88 88");
+		textSmsAbsender.setBounds(151, 11, 86, 20);
+		panelSMS.add(textSmsAbsender);
+		textSmsAbsender.setColumns(10);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(151, 42, 86, 20);
-		panelSMS.add(textField_5);
-		textField_5.setColumns(10);
-		
-		textField_6 = new JTextField();
-		textField_6.setBounds(151, 73, 86, 100);
-		panelSMS.add(textField_6);
-		textField_6.setColumns(10);
+		textSmsEmpfaenger = new JTextField();
+		textSmsEmpfaenger.setToolTipText("+41 78 888 88 88");
+		textSmsEmpfaenger.setBounds(151, 42, 86, 20);
+		panelSMS.add(textSmsEmpfaenger);
+		textSmsEmpfaenger.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("TelNr.Absender");
 		lblNewLabel.setBounds(10, 14, 105, 14);
 		panelSMS.add(lblNewLabel);
 		
-		JLabel lblTelNrEmpfnger = new JLabel("TelNr.Empfänger");
+		JLabel lblTelNrEmpfnger = new JLabel("TelNr.Empfaenger");
 		lblTelNrEmpfnger.setBounds(10, 45, 105, 14);
 		panelSMS.add(lblTelNrEmpfnger);
 		
@@ -148,52 +143,62 @@ public class Message extends JFrame {
 		panelSMS.add(lblText);
 		
 		JButton btnSMSSenden = new JButton("Senden");
-		btnSMSSenden.setBounds(151, 201, 89, 23);
+		btnSMSSenden.setBounds(148, 207, 89, 23);
 		panelSMS.add(btnSMSSenden);
 		
+		JTextArea textSms = new JTextArea();
+		textSms.setBounds(151, 90, 133, 49);
+		panelSMS.add(textSms);
+		
 		JPanel panelMMS = new JPanel();
+		panelMMS.setToolTipText("+41 78 888 88 88");
 		tabbedPane.addTab("MMS", null, panelMMS, null);
 		panelMMS.setLayout(null);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(150, 30, 86, 20);
-		panelMMS.add(textField_7);
+		textMmsAbsender = new JTextField();
+		textMmsAbsender.setToolTipText("+41 78 888 88 88");
+		textMmsAbsender.setColumns(10);
+		textMmsAbsender.setBounds(150, 8, 86, 20);
+		panelMMS.add(textMmsAbsender);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(150, 71, 86, 20);
-		panelMMS.add(textField_8);
-		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(150, 108, 86, 100);
-		panelMMS.add(textField_9);
+		textMmsEmpfaenger = new JTextField();
+		textMmsEmpfaenger.setToolTipText("+41 78 888 88 88");
+		textMmsEmpfaenger.setHorizontalAlignment(SwingConstants.LEFT);
+		textMmsEmpfaenger.setColumns(10);
+		textMmsEmpfaenger.setBounds(150, 46, 86, 20);
+		panelMMS.add(textMmsEmpfaenger);
 		
 		JLabel label = new JLabel("TelNr.Absender");
-		label.setBounds(10, 33, 105, 14);
+		label.setBounds(10, 11, 105, 14);
 		panelMMS.add(label);
 		
-		JLabel label_2 = new JLabel("TelNr.Empfänger");
-		label_2.setBounds(10, 74, 105, 14);
-		panelMMS.add(label_2);
+		JLabel labelTelNrEmpfaenger = new JLabel("TelNr.Empfaenger");
+		labelTelNrEmpfaenger.setBounds(10, 49, 105, 14);
+		panelMMS.add(labelTelNrEmpfaenger);
 		
 		JLabel label_3 = new JLabel("Text");
-		label_3.setBounds(10, 111, 105, 14);
+		label_3.setBounds(10, 97, 105, 14);
 		panelMMS.add(label_3);
+		
+		JTextArea textMms = new JTextArea();
+		textMms.setBounds(149, 92, 133, 49);
+		panelMMS.add(textMms);
+		
+		JButton button = new JButton("Senden");
+		button.setBounds(147, 183, 89, 23);
+		panelMMS.add(button);
 		
 		JPanel panelPrint = new JPanel();
 		tabbedPane.addTab("Print", null, panelPrint, null);
 		panelPrint.setLayout(null);
 		
 		JButton btnAudrucken = new JButton("Drucken");
-		btnAudrucken.setBounds(268, 285, 89, 23);
+		btnAudrucken.setBounds(291, 182, 89, 23);
 		panelPrint.add(btnAudrucken);
 		
-		textField_10 = new JTextField();
-		textField_10.setBounds(48, 51, 309, 191);
-		panelPrint.add(textField_10);
-		textField_10.setColumns(10);
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(56, 23, 294, 129);
+		panelPrint.add(textArea);
 		
 		
 	}
