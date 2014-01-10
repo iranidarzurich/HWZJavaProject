@@ -3,9 +3,11 @@
  */
 
 package Gui;
-
+import Message.*;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,14 +21,6 @@ import javax.swing.SwingConstants;
 
 import Message.Email;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.JTextPane;
-import javax.swing.JEditorPane;
-import javax.swing.DropMode;
-import javax.swing.JComboBox;
-
 /**
  * 
  */
@@ -39,6 +33,7 @@ public class Message extends JFrame {
 	private JTextField textMmsAbsender;
 	private JTextField textMmsEmpfaenger;
 	private JTextField textEmail;
+	private JTextField textSms;
 	
 	
 
@@ -141,15 +136,21 @@ public class Message extends JFrame {
 
 		textSmsAbsender = new JTextField();
 		textSmsAbsender.setToolTipText("+41 78 888 88 88");
-		textSmsAbsender.setBounds(151, 11, 86, 20);
+		textSmsAbsender.setBounds(151, 11, 205, 20);
 		panelSMS.add(textSmsAbsender);
 		textSmsAbsender.setColumns(10);
 
 		textSmsEmpfaenger = new JTextField();
 		textSmsEmpfaenger.setToolTipText("+41 78 888 88 88");
-		textSmsEmpfaenger.setBounds(151, 42, 86, 20);
+		textSmsEmpfaenger.setBounds(151, 42, 205, 20);
 		panelSMS.add(textSmsEmpfaenger);
 		textSmsEmpfaenger.setColumns(10);
+		
+		textSms = new JTextField();
+		textSms.setToolTipText("Hier Text eingeben");
+		textSms.setBounds(151, 73, 205, 20);
+		panelSMS.add(textSms);
+		textSms.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("TelNr.Absender");
 		lblNewLabel.setBounds(10, 14, 105, 14);
@@ -164,12 +165,21 @@ public class Message extends JFrame {
 		panelSMS.add(lblText);
 
 		JButton btnSMSSenden = new JButton("Senden");
-		btnSMSSenden.setBounds(148, 207, 89, 23);
+		btnSMSSenden.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				SMS sms1= new SMS();
+				sms1.setMsgAbsender(textSmsAbsender.getText());
+				sms1.setMsgEmpfaenger(textSmsEmpfaenger.getText());
+				sms1.setMsgText(textSms.getText());
+				sms1.sendMessage();
+				JOptionPane.showMessageDialog(null, "SMS wurde gesendet für mehr Informationen bitte den Log anschauen");
+				
+				
+				
+			}
+		});
+		btnSMSSenden.setBounds(151, 129, 89, 23);
 		panelSMS.add(btnSMSSenden);
-
-		JTextArea textSms = new JTextArea();
-		textSms.setBounds(151, 90, 133, 49);
-		panelSMS.add(textSms);
 
 		JPanel panelMMS = new JPanel();
 		panelMMS.setBackground(Color.LIGHT_GRAY);

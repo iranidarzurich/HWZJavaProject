@@ -92,8 +92,8 @@ public abstract class Message {
 
 	
 		public void sendMessage() {
-			System.out.println("Nachricht erfolgreich verschickt. Nachricht: " +"Absender :"+getMsgAbsender()+ "\n"
-					+ ". Empfaenger: " + getMsgEmpfaenger()
+			System.out.println("Nachricht erfolgreich verschickt "+"\n\n" +"Absender : "+getMsgAbsender()+ "\n"
+					+ "Empfaenger: " + getMsgEmpfaenger()
 					+"\n"+ "Inhalt: "+ getMsgText()) ;
 		/* Logfile Eintrag */
 
