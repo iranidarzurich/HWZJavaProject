@@ -65,7 +65,7 @@ public class Message extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(370, 150, 451, 429);
+		setBounds(500,150,451, 429);
 		setTitle("New Software");
 		getContentPane().setLayout(null);
 
