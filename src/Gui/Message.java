@@ -3,6 +3,7 @@
  */
 
 package Gui;
+
 import Message.*;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -35,8 +36,7 @@ public class Message extends JFrame {
 	private JTextField textEmail;
 	private JTextField textSms;
 	private JTextField textMms;
-	
-	
+	private JTextField textAusdrucken;
 
 	/**
 	 * Launch the application.
@@ -58,10 +58,9 @@ public class Message extends JFrame {
 	 * Create the frame.
 	 */
 	public Message() {
-		
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(500,150,451, 429);
+		setBounds(500, 150, 451, 429);
 		setTitle("New Software");
 		getContentPane().setLayout(null);
 
@@ -91,7 +90,7 @@ public class Message extends JFrame {
 		textEmailBetreff.setToolTipText("Geben sie bitte einen Betrff ein");
 		textEmailBetreff.setColumns(10);
 		panelEmail.add(textEmailBetreff);
-		
+
 		textEmail = new JTextField();
 		textEmail.setBounds(126, 110, 199, 20);
 		panelEmail.add(textEmail);
@@ -113,18 +112,20 @@ public class Message extends JFrame {
 		btnSenden.setBounds(306, 259, 89, 23);
 		btnSenden.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				Email mail1 = new Email();							
+
+				Email mail1 = new Email();
 				mail1.setMsgAbsender(textEmailAbsender.getText());
 				mail1.setMsgEmpfaenger(textEmailEmpfaenger.getText());
 				mail1.setMsgText(textEmail.getText());
 				mail1.setMsgSubject(textEmailBetreff.getText());
 				mail1.sendMessage();
-				JOptionPane.showMessageDialog(null, "Email wurde gesendet für mehr Informationen bitte den Log anschauen");
-								
+				JOptionPane
+						.showMessageDialog(null,
+								"Email wurde gesendet für mehr Informationen bitte den Log anschauen");
+
 			}
 		});
-		
+
 		JLabel lblEmailText = new JLabel("Text");
 		lblEmailText.setBounds(10, 113, 46, 14);
 		panelEmail.add(lblEmailText);
@@ -146,7 +147,7 @@ public class Message extends JFrame {
 		textSmsEmpfaenger.setBounds(151, 42, 205, 20);
 		panelSMS.add(textSmsEmpfaenger);
 		textSmsEmpfaenger.setColumns(10);
-		
+
 		textSms = new JTextField();
 		textSms.setToolTipText("Hier Text eingeben");
 		textSms.setBounds(151, 73, 205, 20);
@@ -168,13 +169,15 @@ public class Message extends JFrame {
 		JButton btnSMSSenden = new JButton("Senden");
 		btnSMSSenden.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				SMS sms1= new SMS();
+				SMS sms1 = new SMS();
 				sms1.setMsgAbsender(textSmsAbsender.getText());
 				sms1.setMsgEmpfaenger(textSmsEmpfaenger.getText());
 				sms1.setMsgText(textSms.getText());
 				sms1.sendMessage();
-				JOptionPane.showMessageDialog(null, "SMS wurde gesendet für mehr Informationen bitte den Log anschauen");
-											
+				JOptionPane
+						.showMessageDialog(null,
+								"SMS wurde gesendet für mehr Informationen bitte den Log anschauen");
+
 			}
 		});
 		btnSMSSenden.setBounds(151, 129, 89, 23);
@@ -214,17 +217,19 @@ public class Message extends JFrame {
 		JButton button = new JButton("Senden");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MMS mms1= new MMS();
+				MMS mms1 = new MMS();
 				mms1.setMsgAbsender(textMmsAbsender.getText());
 				mms1.setMsgEmpfaenger(textMmsEmpfaenger.getText());
 				mms1.setMsgText(textMms.getText());
 				mms1.sendMessage();
-				JOptionPane.showMessageDialog(null, "MMS wurde gesendet für mehr Informationen bitte den Log anschauen");
+				JOptionPane
+						.showMessageDialog(null,
+								"MMS wurde gesendet für mehr Informationen bitte den Log anschauen");
 			}
 		});
 		button.setBounds(150, 138, 89, 23);
 		panelMMS.add(button);
-		
+
 		textMms = new JTextField();
 		textMms.setToolTipText("Bitte den Text eingeben");
 		textMms.setBounds(150, 68, 209, 20);
@@ -235,18 +240,32 @@ public class Message extends JFrame {
 		panelPrint.setBackground(Color.LIGHT_GRAY);
 		tabbedPane.addTab("Print", null, panelPrint, null);
 		panelPrint.setLayout(null);
+		
+		textAusdrucken = new JTextField();
+		textAusdrucken.setToolTipText("Hier Text eingeben");
+		textAusdrucken.setBounds(113, 8, 211, 20);
+		panelPrint.add(textAusdrucken);
+		textAusdrucken.setColumns(10);
+		
+				JLabel lblTestDrucker = new JLabel("Text");
+				lblTestDrucker.setBounds(31, 11, 46, 14);
+				panelPrint.add(lblTestDrucker);
 
 		JButton btnAudrucken = new JButton("Drucken");
-		btnAudrucken.setBounds(262, 202, 89, 23);
+		btnAudrucken.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Print print= new Print();
+				print.setMsgText(textAusdrucken.getText());
+				print.sendMessage();
+				JOptionPane
+						.showMessageDialog(null,
+								"Ihr Text wird gedruckt");
+				
+				
+			}
+		});
+		btnAudrucken.setBounds(113, 51, 89, 23);
 		panelPrint.add(btnAudrucken);
-
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(57, 42, 294, 129);
-		panelPrint.add(textArea);
-
-		JLabel lblTestDrucker = new JLabel("Text");
-		lblTestDrucker.setBounds(57, 11, 46, 14);
-		panelPrint.add(lblTestDrucker);
 
 	}
 }
