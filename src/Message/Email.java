@@ -3,8 +3,13 @@ package Message;
 
 
 public class Email extends Message {
-
 	private String msgSubject;
+
+	public void setMsgSubject(String msgSubject) {
+		this.msgSubject = msgSubject;
+	}
+
+
 
 	public String getMsgSubject() {
 		return msgSubject;
@@ -12,7 +17,7 @@ public class Email extends Message {
 
 	public void scanMsgSubject() {
 
-		System.out.println("Bitte einen Email Betreff eingeben(max 78 Zeichen): ");
+//		System.out.println("Bitte einen Email Betreff eingeben(max 78 Zeichen): ");
 
 		boolean inputError5 = false;
 
@@ -49,10 +54,9 @@ public class Email extends Message {
 
 	@Override
 	public void sendMessage() {
-		System.out.println("Nachricht erfolgreich verschickt. Nachricht: "
-				+ this.getMsgText() + ". Empfaenger: " + getMsgRecipien()
-				+ ". Betreff: " + this.getMsgSubject() + ". Nachrichtentyp: "
-				+ this.getMsgType());
+		System.out.println("Nachricht erfolgreich verschickt " + "\n\n" +" Absender : "+getMsgAbsender()+ "\n"
+				+ " Empfaenger: " + getMsgEmpfaenger()
+				+"\n"+ " Betreff: " +this.getMsgSubject()+"\n"+ " Inhalt: "+ getMsgText()) ;
 		
 		//TODO Logfile Eintrag generieren
 	}

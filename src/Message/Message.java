@@ -6,7 +6,10 @@ public abstract class Message {
 
 	protected String msgType;
 	protected String msgText;
+	private String msgEmpfaenger;
 	private String msgRecipien;
+	private String msgAbsender;
+	
 	Scanner scan = new Scanner(System.in);
 
 	public String getMsgType() {
@@ -15,6 +18,10 @@ public abstract class Message {
 
 	public void setMsgType(String msgType) {
 		this.msgType = msgType;
+	}
+	
+	public void setMsgText(String msgText) {
+		this.msgText = msgText;
 	}
 
 	public String getMsgText() {
@@ -83,10 +90,11 @@ public abstract class Message {
 									 */);
 	}
 
-	public void sendMessage() {
-		System.out.println("Nachricht erfolgreich verschickt. Nachricht "
-				+ this.getMsgText() + ". Empfaenger: " + getMsgRecipien()
-				+ ". Nachrichtentyp: " + this.getMsgType());
+	
+		public void sendMessage() {
+			System.out.println("Nachricht erfolgreich verschickt. Nachricht: " +"Absender :"+getMsgAbsender()+ "\n"
+					+ ". Empfaenger: " + getMsgEmpfaenger()
+					+"\n"+ "Inhalt: "+ getMsgText()) ;
 		/* Logfile Eintrag */
 
 		// TODO Logfile Eintrag generieren
@@ -99,6 +107,22 @@ public abstract class Message {
 
 	public Message() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getMsgAbsender() {
+		return msgAbsender;
+	}
+
+	public void setMsgAbsender(String msgAbsender) {
+		this.msgAbsender = msgAbsender;
+	}
+
+	public String getMsgEmpfaenger() {
+		return msgEmpfaenger;
+	}
+
+	public void setMsgEmpfaenger(String msgEmpfaenger) {
+		this.msgEmpfaenger = msgEmpfaenger;
 	}
 
 }
