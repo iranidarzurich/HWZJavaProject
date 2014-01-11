@@ -82,7 +82,7 @@ public class MainProgramm_v2 {
 					mail1.scanMsgText();
 					mail1.scanMsgRecipien();
 					mail1.scanMsgSubject();
-					mail1.sendMessage();
+					mail1.createLog();
 					//TODO Write Logfile
 					break;
 					
@@ -93,7 +93,7 @@ public class MainProgramm_v2 {
 					SMS sms1 = new SMS();
 					sms1.scanMsgText();
 					sms1.scanMsgRecipien();
-					sms1.sendMessage();
+					sms1.createLog();
 					//TODO Write Logfile
 					break;
 
@@ -104,7 +104,7 @@ public class MainProgramm_v2 {
 					MMS mms1 = new MMS();
 					mms1.scanMsgText();
 					mms1.scanMsgRecipien();
-					mms1.sendMessage();
+					mms1.createLog();
 					//TODO Write Logfile
 					break;
 

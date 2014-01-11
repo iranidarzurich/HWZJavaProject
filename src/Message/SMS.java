@@ -5,9 +5,9 @@ package Message;
 public class SMS extends Message {
 
 	@Override
-	public void sendMessage() {
+	public void createLog() {
 		
-		super.sendMessage();
+		super.createLog();
 	}
 	
 	

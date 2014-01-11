@@ -2,6 +2,8 @@ package Message;
 
 import java.util.Scanner;
 
+import com.sun.jmx.snmp.Timestamp;
+
 public abstract class Message {
 
 	protected String msgType;
@@ -9,7 +11,7 @@ public abstract class Message {
 	private String msgEmpfaenger;
 	private String msgRecipien;
 	private String msgAbsender;
-	
+
 	Scanner scan = new Scanner(System.in);
 
 	public String getMsgType() {
@@ -19,7 +21,7 @@ public abstract class Message {
 	public void setMsgType(String msgType) {
 		this.msgType = msgType;
 	}
-	
+
 	public void setMsgText(String msgText) {
 		this.msgText = msgText;
 	}
@@ -35,17 +37,19 @@ public abstract class Message {
 		;
 
 	}
-//Muss nicht kommentiert werden
+
+	// Muss nicht kommentiert werden
 	public String getMsgRecipien() {
 		return msgRecipien;
 	}
 
-	/** Emfpänger wird eingelesen**/
+	// Emfpänger wird eingelesen
 	public void scanMsgRecipien() {
 
 		boolean inputError3 = false;
 		boolean inputError4 = false;
-		do {/* Usereingabe: Empfaenger */
+		do {
+			// Usereingabe: Empfaenger
 			if (inputError3) {
 				System.out
 						.println("Der Empfaenger ist auf der Blacklist. Bitte neu eingeben:");
@@ -56,14 +60,14 @@ public abstract class Message {
 					System.out
 							.println("Emfpaenger darf keine Leerzeichen enthalten. Bitte neu eingeben:");
 				}
-				
+
 				if (!inputError4) {
 					System.out.println("Bitte Emfpaenger eingeben: ");
 				}
 				msgRecipien = scan.nextLine();
 				inputError4 = msgRecipien.matches(".*\\s+.*");
 
-			} while (inputError4);/*Emfpaenger auf Leerzeichen ueberpruefen*/
+			} while (inputError4);/* Emfpaenger auf Leerzeichen ueberpruefen */
 
 			/*
 			 * die Variable onBlackl wird nach der Blacklistueberpruefung auf
@@ -74,28 +78,29 @@ public abstract class Message {
 			 * Fabian
 			 */
 			// Wird temporaer auf false gesetzt
-			//TODO Blacklisthandler
-			
+			// TODO Blacklisthandler
+
 			boolean onBlackl = false;
 
 			if (onBlackl == true/* Empfaenger auf Sperrset */) {
 				/* Fehlermeldung "Empfaenger auf Sperset" */
 				inputError3 = true;
 			} else {
-				/* fehler = false */
+				// fehler = false
 				inputError3 = false;
 			}
-		} while (inputError3 == true/*
-									 * Fehler = true (Empfaenger auf Sperrset)
-									 */);
+		} while (inputError3 == true
+		// Fehler = true (Empfaenger auf Sperrset)
+		);
 	}
 
-	
-		public void sendMessage() {
-			System.out.println("Nachricht erfolgreich verschickt "+"\n\n" +"Absender : "+getMsgAbsender()+ "\n"
-					+ "Empfaenger: " + getMsgEmpfaenger()
-					+"\n"+ "Inhalt: "+ getMsgText()) ;
-		/* Logfile Eintrag */
+	// Create Logfile
+	public void createLog() {
+		Timestamp tstamp = new Timestamp(System.currentTimeMillis());
+		System.out.println(tstamp);
+		System.out.println("Nachricht erfolgreich verschickt " + "\n\n"
+				+ "Absender : " + getMsgAbsender() + "\n" + "Empfaenger: "
+				+ getMsgEmpfaenger() + "\n" + "Inhalt: " + getMsgText());
 
 		// TODO Logfile Eintrag generieren
 

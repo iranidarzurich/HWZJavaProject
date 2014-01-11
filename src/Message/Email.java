@@ -52,18 +52,29 @@ public class Email extends Message {
 		 */
 	}
 
-	@Override
-	public void sendMessage() {
+	/*@Override
+	public void createLog() {
 		System.out.println("Nachricht erfolgreich verschickt " + "\n\n" +" Absender : "+getMsgAbsender()+ "\n"
 				+ " Empfaenger: " + getMsgEmpfaenger()
 				+"\n"+ " Betreff: " +this.getMsgSubject()+"\n"+ " Inhalt: "+ getMsgText()) ;
 		
 		//TODO Logfile Eintrag generieren
-	}
+	}*/
+	
+	
 
 	public Email() {
 		super();
 		this.setMsgType("Mail");
+	}
+
+
+
+	@Override
+	public void createLog() {
+		// TODO Auto-generated method stub
+		super.createLog();
+		System.out.println("Betreff: " +this.getMsgSubject());
 	}
 
 }

@@ -119,7 +119,7 @@ public class Message extends JFrame {
 				mail1.setMsgEmpfaenger(textEmailEmpfaenger.getText());
 				mail1.setMsgText(textAreaEmail.getText());
 				mail1.setMsgSubject(textEmailBetreff.getText());
-				mail1.sendMessage();
+				mail1.createLog();
 				JOptionPane
 						.showMessageDialog(null,
 								"Email wurde gesendet für mehr Informationen bitte den Log anschauen");
@@ -168,7 +168,7 @@ public class Message extends JFrame {
 				sms1.setMsgAbsender(textSmsAbsender.getText());
 				sms1.setMsgEmpfaenger(textSmsEmpfaenger.getText());
 				sms1.setMsgText(textAreaSms.getText());
-				sms1.sendMessage();
+				sms1.createLog();
 				JOptionPane
 						.showMessageDialog(null,
 								"SMS wurde gesendet für mehr Informationen bitte den Log anschauen");
@@ -225,7 +225,7 @@ public class Message extends JFrame {
 				mms1.setMsgAbsender(textMmsAbsender.getText());
 				mms1.setMsgEmpfaenger(textMmsEmpfaenger.getText());
 				mms1.setMsgText(textAreaMms.getText());
-				mms1.sendMessage();
+				mms1.createLog();
 				JOptionPane
 						.showMessageDialog(null,
 								"MMS wurde gesendet für mehr Informationen bitte den Log anschauen");
@@ -248,7 +248,7 @@ public class Message extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Print print = new Print();
 				print.setMsgText(textAreaDrucken.getText());
-				print.sendMessage();
+				print.createLog();
 				JOptionPane.showMessageDialog(null, "Ihr Text wird gedruckt");
 
 			}
