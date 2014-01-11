@@ -1,5 +1,7 @@
 package Message;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 import com.sun.jmx.snmp.Timestamp;
@@ -43,7 +45,7 @@ public abstract class Message {
 		return msgRecipien;
 	}
 
-	// Emfpänger wird eingelesen
+	// Emfpaenger wird eingelesen
 	public void scanMsgRecipien() {
 
 		boolean inputError3 = false;
@@ -96,11 +98,13 @@ public abstract class Message {
 
 	// Create Logfile
 	public void createLog() {
-		Timestamp tstamp = new Timestamp(System.currentTimeMillis());
-		System.out.println(tstamp);
-		System.out.println("Nachricht erfolgreich verschickt " + "\n\n"
-				+ "Absender : " + getMsgAbsender() + "\n" + "Empfaenger: "
-				+ getMsgEmpfaenger() + "\n" + "Inhalt: " + getMsgText());
+		SimpleDateFormat formatter = new SimpleDateFormat(
+				"dd.MM.yyyy 'at' HH:mm:ss ");
+		Date currentTime = new Date();
+
+		System.out.println("Zeit und Datum : " + formatter.format(currentTime) +"\nNachricht erfolgreich verschickt " + "\n" 
+				+ "\nAbsender : " + getMsgAbsender()  + "\nEmpfaenger: "
+				+ getMsgEmpfaenger() + "\nInhalt: " + getMsgText());
 
 		// TODO Logfile Eintrag generieren
 
