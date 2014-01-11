@@ -22,6 +22,7 @@ import Message.Email;
 import Message.MMS;
 import Message.Print;
 import Message.SMS;
+import javax.swing.JTextArea;
 
 /**
  * 
@@ -34,11 +35,10 @@ public class Message extends JFrame {
 	private JTextField textSmsEmpfaenger;
 	private JTextField textMmsAbsender;
 	private JTextField textMmsEmpfaenger;
-	private JTextField textEmail;
-	private JTextField textSms;
-	private JTextField textMms;
-	private JTextField textAusdrucken;
-
+	private JTextArea  textAreaEmail;
+	private JTextArea  textAreaSms;
+	private JTextArea  textAreaMms;
+	private JTextArea  textAreaDrucken;
 	/**
 	 * Launch the application.
 	 */
@@ -61,7 +61,7 @@ public class Message extends JFrame {
 	public Message() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(500, 150, 451, 429);
+		setBounds(600, 150, 451, 429);
 		setTitle("New Software");
 		getContentPane().setLayout(null);
 
@@ -91,12 +91,11 @@ public class Message extends JFrame {
 		textEmailBetreff.setToolTipText("Geben Sie bitte einen Betrff ein");
 		textEmailBetreff.setColumns(10);
 		panelEmail.add(textEmailBetreff);
-
-		textEmail = new JTextField();
-		textEmail.setToolTipText("Hier Text eingeben");
-		textEmail.setBounds(126, 110, 199, 20);
-		panelEmail.add(textEmail);
-		textEmail.setColumns(10);
+		
+		textAreaEmail = new JTextArea();
+		textAreaEmail.setToolTipText("Hier Text eingeben");
+		textAreaEmail.setBounds(126, 104, 199, 77);
+		panelEmail.add(textAreaEmail);
 
 		JLabel labelAbsender = new JLabel("Absender");
 		labelAbsender.setBounds(10, 14, 46, 14);
@@ -118,7 +117,7 @@ public class Message extends JFrame {
 				Email mail1 = new Email();
 				mail1.setMsgAbsender(textEmailAbsender.getText());
 				mail1.setMsgEmpfaenger(textEmailEmpfaenger.getText());
-				mail1.setMsgText(textEmail.getText());
+				mail1.setMsgText(textAreaEmail.getText());
 				mail1.setMsgSubject(textEmailBetreff.getText());
 				mail1.sendMessage();
 				JOptionPane
@@ -150,12 +149,6 @@ public class Message extends JFrame {
 		panelSMS.add(textSmsEmpfaenger);
 		textSmsEmpfaenger.setColumns(10);
 
-		textSms = new JTextField();
-		textSms.setToolTipText("Hier Text eingeben");
-		textSms.setBounds(151, 73, 205, 20);
-		panelSMS.add(textSms);
-		textSms.setColumns(10);
-
 		JLabel lblNewLabel = new JLabel("TelNr.Absender");
 		lblNewLabel.setBounds(10, 14, 105, 14);
 		panelSMS.add(lblNewLabel);
@@ -174,7 +167,7 @@ public class Message extends JFrame {
 				SMS sms1 = new SMS();
 				sms1.setMsgAbsender(textSmsAbsender.getText());
 				sms1.setMsgEmpfaenger(textSmsEmpfaenger.getText());
-				sms1.setMsgText(textSms.getText());
+				sms1.setMsgText(textAreaSms.getText());
 				sms1.sendMessage();
 				JOptionPane
 						.showMessageDialog(null,
@@ -184,6 +177,10 @@ public class Message extends JFrame {
 		});
 		btnSMSSenden.setBounds(151, 129, 89, 23);
 		panelSMS.add(btnSMSSenden);
+		
+		textAreaSms = new JTextArea();
+		textAreaSms.setBounds(151, 71, 205, 47);
+		panelSMS.add(textAreaSms);
 
 		JPanel panelMMS = new JPanel();
 		panelMMS.setBackground(Color.LIGHT_GRAY);
@@ -203,10 +200,15 @@ public class Message extends JFrame {
 		textMmsEmpfaenger.setColumns(10);
 		textMmsEmpfaenger.setBounds(150, 39, 209, 20);
 		panelMMS.add(textMmsEmpfaenger);
+		
+		textAreaMms = new JTextArea();
+		textAreaMms.setToolTipText("Hier Text eingeben");
+		textAreaMms.setBounds(150, 70, 209, 57);
+		panelMMS.add(textAreaMms);
 
-		JLabel label = new JLabel("TelNr.Absender");
-		label.setBounds(10, 14, 105, 14);
-		panelMMS.add(label);
+		JLabel labelTelNRAbsender = new JLabel("TelNr.Absender");
+		labelTelNRAbsender.setBounds(10, 14, 105, 14);
+		panelMMS.add(labelTelNRAbsender);
 
 		JLabel labelTelNrEmpfaenger = new JLabel("TelNr.Empfaenger");
 		labelTelNrEmpfaenger.setBounds(10, 42, 105, 14);
@@ -222,7 +224,7 @@ public class Message extends JFrame {
 				MMS mms1 = new MMS();
 				mms1.setMsgAbsender(textMmsAbsender.getText());
 				mms1.setMsgEmpfaenger(textMmsEmpfaenger.getText());
-				mms1.setMsgText(textMms.getText());
+				mms1.setMsgText(textAreaMms.getText());
 				mms1.sendMessage();
 				JOptionPane
 						.showMessageDialog(null,
@@ -232,22 +234,10 @@ public class Message extends JFrame {
 		button.setBounds(150, 138, 89, 23);
 		panelMMS.add(button);
 
-		textMms = new JTextField();
-		textMms.setToolTipText("Hier Text eingeben");
-		textMms.setBounds(150, 68, 209, 20);
-		panelMMS.add(textMms);
-		textMms.setColumns(10);
-
 		JPanel panelPrint = new JPanel();
 		panelPrint.setBackground(Color.LIGHT_GRAY);
 		tabbedPane.addTab("Print", null, panelPrint, null);
 		panelPrint.setLayout(null);
-
-		textAusdrucken = new JTextField();
-		textAusdrucken.setToolTipText("Hier Text eingeben");
-		textAusdrucken.setBounds(113, 8, 211, 20);
-		panelPrint.add(textAusdrucken);
-		textAusdrucken.setColumns(10);
 
 		JLabel lblTestDrucker = new JLabel("Text");
 		lblTestDrucker.setBounds(31, 11, 46, 14);
@@ -257,14 +247,18 @@ public class Message extends JFrame {
 		btnAudrucken.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Print print = new Print();
-				print.setMsgText(textAusdrucken.getText());
+				print.setMsgText(textAreaDrucken.getText());
 				print.sendMessage();
 				JOptionPane.showMessageDialog(null, "Ihr Text wird gedruckt");
 
 			}
 		});
-		btnAudrucken.setBounds(113, 51, 89, 23);
+		btnAudrucken.setBounds(113, 116, 89, 23);
 		panelPrint.add(btnAudrucken);
+		
+		textAreaDrucken = new JTextArea();
+		textAreaDrucken.setBounds(113, 11, 184, 82);
+		panelPrint.add(textAreaDrucken);
 
 	}
 }
