@@ -4,6 +4,7 @@ package Message;
 
 public class Email extends Message {
 	private String msgSubject;
+	private String msAnhang;
 
 	public void setMsgSubject(String msgSubject) {
 		this.msgSubject = msgSubject;
@@ -14,6 +15,18 @@ public class Email extends Message {
 	public String getMsgSubject() {
 		return msgSubject;
 	}
+
+	public String getMsAnhang() {
+		return msAnhang;
+	}
+
+
+
+	public void setMsAnhang(String msAnhang) {
+		this.msAnhang = msAnhang;
+	}
+
+
 
 	public void scanMsgSubject() {
 
@@ -60,7 +73,7 @@ public class Email extends Message {
 	@Override
 	public void createLog() {
 			super.createLog();
-		System.out.println("Betreff: " +this.getMsgSubject());
+		System.out.println("Betreff: " +this.getMsgSubject()+"\n"+"Anhang: "+getMsAnhang());
 	}
 
 }

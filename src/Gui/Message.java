@@ -31,6 +31,10 @@ import Message.SMS;
  * 
  */
 public class Message extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8008759198163764949L;
 	private JTextField textEmailAbsender;
 	private JTextField textEmailEmpfaenger;
 	private JTextField textEmailBetreff;
@@ -161,6 +165,7 @@ public class Message extends JFrame implements ActionListener {
 				mail1.setMsgEmpfaenger(textEmailEmpfaenger.getText());
 				mail1.setMsgText(textAreaEmail.getText());
 				mail1.setMsgSubject(textEmailBetreff.getText());
+				mail1.setMsAnhang(textAnhnagName.getText());
 				mail1.createLog();
 				JOptionPane
 						.showMessageDialog(null,
