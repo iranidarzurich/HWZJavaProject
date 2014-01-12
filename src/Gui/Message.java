@@ -4,17 +4,21 @@
 
 package Gui;
 
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -22,12 +26,11 @@ import Message.Email;
 import Message.MMS;
 import Message.Print;
 import Message.SMS;
-import javax.swing.JTextArea;
 
 /**
  * 
  */
-public class Message extends JFrame {
+public class Message extends JFrame implements ActionListener {
 	private JTextField textEmailAbsender;
 	private JTextField textEmailEmpfaenger;
 	private JTextField textEmailBetreff;
@@ -39,6 +42,8 @@ public class Message extends JFrame {
 	private JTextArea  textAreaSms;
 	private JTextArea  textAreaMms;
 	private JTextArea  textAreaDrucken;
+	private JTextField textAnhnagName;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -54,10 +59,47 @@ public class Message extends JFrame {
 			}
 		});
 	}
-
+	
+	JFileChooser chooser;
+	String choosertitle;
+	String iname;
 	/**
 	 * Create the frame.
 	 */
+	public void actionPerformed(ActionEvent arg0) {
+		
+		
+		
+		
+        
+	    chooser = new JFileChooser(); 
+	    chooser.setCurrentDirectory(new java.io.File("."));
+	    chooser.setDialogTitle(choosertitle);
+	    chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+	    //
+	    // disable the "All files" option.
+	    //
+	    chooser.setAcceptAllFileFilterUsed(false);
+	    //    
+	    if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) { 	      
+	      //String iname=FilenameUtils.getBaseName(openFile.getName());
+	      try{
+	    	  File f=new File(chooser.getSelectedFile().getPath());
+		      //String iname=chooser.getName();
+		      //String fileName = chooser.getName().substring(0, chooser.getName().lastIndexOf("."));
+	    	  iname=chooser.getName(f);
+	    	  textAnhnagName.setText(iname);
+	      }
+	      catch(Exception err){
+	    	  //err.printStackTrace();
+	      }
+	      }
+	    else {
+	      System.out.println("No Selection ");
+	      }
+	    	
+		
+	}
 	public Message() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,7 +136,7 @@ public class Message extends JFrame {
 		
 		textAreaEmail = new JTextArea();
 		textAreaEmail.setToolTipText("Hier Text eingeben");
-		textAreaEmail.setBounds(126, 104, 199, 77);
+		textAreaEmail.setBounds(126, 138, 199, 77);
 		panelEmail.add(textAreaEmail);
 
 		JLabel labelAbsender = new JLabel("Absender");
@@ -128,9 +170,19 @@ public class Message extends JFrame {
 		});
 
 		JLabel lblEmailText = new JLabel("Text");
-		lblEmailText.setBounds(10, 113, 46, 14);
+		lblEmailText.setBounds(10, 128, 46, 14);
 		panelEmail.add(lblEmailText);
 		panelEmail.add(btnSenden);
+		
+		textAnhnagName = new JTextField();
+		textAnhnagName.setBounds(126, 104, 67, 20);
+		panelEmail.add(textAnhnagName);
+		textAnhnagName.setColumns(10);
+		
+		JButton btnAnhang = new JButton("Anhang");
+		btnAnhang.addActionListener(this);
+		btnAnhang.setBounds(235, 104, 89, 23);
+		panelEmail.add(btnAnhang);
 
 		JPanel panelSMS = new JPanel();
 		panelSMS.setBackground(Color.LIGHT_GRAY);
