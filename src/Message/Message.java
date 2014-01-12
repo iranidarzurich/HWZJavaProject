@@ -1,5 +1,9 @@
 package Message;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
@@ -40,12 +44,11 @@ public abstract class Message {
 
 	}
 
-	// Muss nicht kommentiert werden
 	public String getMsgRecipien() {
 		return msgRecipien;
 	}
 
-	// Emfpaenger wird eingelesen
+	// scan recipient
 	public void scanMsgRecipien() {
 
 		boolean inputError3 = false;
@@ -96,14 +99,15 @@ public abstract class Message {
 		);
 	}
 
-	// Create Logfile
+	// Create Logfile at console
 	public void createLog() {
 		SimpleDateFormat formatter = new SimpleDateFormat(
 				"dd.MM.yyyy 'at' HH:mm:ss ");
 		Date currentTime = new Date();
 
-		System.out.println("Zeit und Datum : " + formatter.format(currentTime) +"\nNachricht erfolgreich verschickt " + "\n" 
-				+ "\nAbsender : " + getMsgAbsender()  + "\nEmpfaenger: "
+		System.out.println("Zeit und Datum : " + formatter.format(currentTime)
+				+ "\nNachricht erfolgreich verschickt " + "\n"
+				+ "\nAbsender : " + getMsgAbsender() + "\nEmpfaenger: "
 				+ getMsgEmpfaenger() + "\nInhalt: " + getMsgText());
 
 		// TODO Logfile Eintrag generieren
@@ -115,7 +119,6 @@ public abstract class Message {
 	}
 
 	public Message() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getMsgAbsender() {
