@@ -3,10 +3,14 @@ package Message;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import com.sun.jmx.snmp.Timestamp;
 
@@ -19,6 +23,8 @@ public abstract class Message {
 	private String msgAbsender;
 
 	Scanner scan = new Scanner(System.in);
+	Logger logger = Logger.getLogger("MyLog");
+	FileHandler fh;
 
 	public String getMsgType() {
 		return msgType;
@@ -99,24 +105,43 @@ public abstract class Message {
 		);
 	}
 
+	public void log() {
+		try {
+			// logfile size limit 1MB
+			int limit = 1000000;
+
+			// configure the logger with handler and formatter
+			fh = new FileHandler("C:/temp/LogFile.log", limit, 1, true);
+			logger.addHandler(fh);
+			SimpleFormatter formatter = new SimpleFormatter();
+			fh.setFormatter(formatter);
+
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	// Create Logfile at console
 	public void createLog() {
 		SimpleDateFormat formatter = new SimpleDateFormat(
 				"dd.MM.yyyy 'at' HH:mm:ss ");
 		Date currentTime = new Date();
-
-		System.out.println("Zeit und Datum : " + formatter.format(currentTime)
-				+ "\nNachricht erfolgreich verschickt " + "\n"
+		String ausgabe = "\nNachricht erfolgreich verschickt " + "\n"
 				+ "\nAbsender : " + getMsgAbsender() + "\nEmpfaenger: "
-				+ getMsgEmpfaenger() + "\nInhalt: " + getMsgText());
+				+ getMsgEmpfaenger() + "\nInhalt: " + getMsgText();
+		// System.out.println(ausgabe);
 
-		// TODO Logfile Eintrag generieren
+		// create logfile and entries
+		log();
+		logger.info(ausgabe);
 
 	}
 
-	public String writeLog() {
-		return "logfile erfolgreich gespeichert";
-	}
+	/*
+	 * public String writeLog() { return "logfile erfolgreich gespeichert"; }
+	 */
 
 	public Message() {
 	}
