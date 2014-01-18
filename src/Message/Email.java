@@ -1,7 +1,5 @@
 package Message;
 
-//hallo
-
 public class Email extends Message {
 	private String msgSubject;
 	private String msAnhang;
@@ -27,12 +25,13 @@ public class Email extends Message {
 		this.setMsgType("Mail");
 	}
 
+	// Create log to console and file
 	@Override
 	public void createLog() {
 		super.createLog();
-		String sentEmail = "Betreff: " + this.getMsgSubject() + "\n"
-				+ "Anhang: " + getMsAnhang();
+		String sentEmail = output + "\nBetreff: " + this.getMsgSubject()
+				+ "\nAnhang: " + getMsAnhang() + "\nAnzahl Zeichen: "
+				+ getMsgText().length();
 		logger.info(sentEmail);
 	}
-
 }

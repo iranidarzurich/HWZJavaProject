@@ -1,8 +1,6 @@
 package Message;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
@@ -116,32 +114,18 @@ public abstract class Message {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
 
 	// Create Logfile at console
 	public void createLog() {
-		/*
-		 * SimpleDateFormat formatter = new SimpleDateFormat(
-		 * "dd.MM.yyyy 'at' HH:mm:ss "); Date currentTime = new Date();
-		 */
-		this.output = "\nNachricht erfolgreich verschickt " + "\n"
-				+ "\nAbsender : " + getMsgAbsender() + "\nEmpfaenger: "
-				+ getMsgEmpfaenger() + "\nInhalt: " + getMsgText();
-		// System.out.println(ausgabe);
+		this.output = "\nNachricht erfolgreich versendet " + "\nAbsender : "
+				+ getMsgAbsender() + "\nEmpfaenger: " + getMsgEmpfaenger()
+				+ "\nInhalt: " + getMsgText();
 
 		// create logfile and entries
-
 		log();
-		logger.info(output);
-		
-
 	}
-
-	/*
-	 * public String writeLog() { return "logfile erfolgreich gespeichert"; }
-	 */
 
 	public Message() {
 	}
