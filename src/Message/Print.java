@@ -1,9 +1,8 @@
 package Message;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Print extends Message {
+	private String printAnhang;
 
 	// Create Log to console and file
 	@Override
@@ -13,6 +12,14 @@ public class Print extends Message {
 		log();
 		logger.info(sentPrint);
 
+	}
+
+	public String getPrintAnhang() {
+		return printAnhang;
+	}
+
+	public void setPrintAnhang(String printAnhang) {
+		this.printAnhang = printAnhang;
 	}
 
 }

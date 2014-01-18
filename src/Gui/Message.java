@@ -4,15 +4,12 @@
 
 package Gui;
 
-
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -30,7 +27,7 @@ import Message.SMS;
 /**
  * 
  */
-public class Message extends JFrame implements ActionListener {
+public class Message extends JFrame  {
 	/**
 	 * 
 	 */
@@ -42,12 +39,17 @@ public class Message extends JFrame implements ActionListener {
 	private JTextField textSmsEmpfaenger;
 	private JTextField textMmsAbsender;
 	private JTextField textMmsEmpfaenger;
-	private JTextArea  textAreaEmail;
-	private JTextArea  textAreaSms;
-	private JTextArea  textAreaMms;
-	private JTextArea  textAreaDrucken;
-	private JTextField textAnhnagName;
-	
+	private JTextArea textAreaEmail;
+	private JTextArea textAreaSms;
+	private JTextArea textAreaMms;
+	private JTextArea textAreaDrucken;
+	private JTextField textAnhnagEmail;
+	private JTextField textAnhangMms;
+//	private JFileChooser chooser;
+	String choosertitle;
+	String iname;
+	private JTextField textAnhangPrint;
+
 	/**
 	 * Launch the application.
 	 */
@@ -63,47 +65,14 @@ public class Message extends JFrame implements ActionListener {
 			}
 		});
 	}
-	
-	JFileChooser chooser;
-	String choosertitle;
-	String iname;
+
 	/**
 	 * Create the frame.
 	 */
-	public void actionPerformed(ActionEvent arg0) {
-		
-		
-		
-		
-        
-	    chooser = new JFileChooser(); 
-	    chooser.setCurrentDirectory(new java.io.File("."));
-	    chooser.setDialogTitle(choosertitle);
-	    chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-	    //
-	    // disable the "All files" option.
-	    //
-	    chooser.setAcceptAllFileFilterUsed(false);
-	    //    
-	    if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) { 	      
-	      //String iname=FilenameUtils.getBaseName(openFile.getName());
-	      try{
-	    	  File f=new File(chooser.getSelectedFile().getPath());
-		      //String iname=chooser.getName();
-		      //String fileName = chooser.getName().substring(0, chooser.getName().lastIndexOf("."));
-	    	  iname=chooser.getName(f);
-	    	  textAnhnagName.setText(iname);
-	      }
-	      catch(Exception err){
-	    	  //err.printStackTrace();
-	      }
-	      }
-	    else {
-	      System.out.println("No Selection ");
-	      }
-	    	
-		
-	}
+	
+
+	
+		//*/
 	public Message() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -137,7 +106,7 @@ public class Message extends JFrame implements ActionListener {
 		textEmailBetreff.setToolTipText("Geben Sie bitte einen Betrff ein");
 		textEmailBetreff.setColumns(10);
 		panelEmail.add(textEmailBetreff);
-		
+
 		textAreaEmail = new JTextArea();
 		textAreaEmail.setToolTipText("Hier Text eingeben");
 		textAreaEmail.setBounds(126, 138, 199, 77);
@@ -165,7 +134,12 @@ public class Message extends JFrame implements ActionListener {
 				mail1.setMsgEmpfaenger(textEmailEmpfaenger.getText());
 				mail1.setMsgText(textAreaEmail.getText());
 				mail1.setMsgSubject(textEmailBetreff.getText());
-				mail1.setMsAnhang(textAnhnagName.getText());
+				mail1.setMsAnhang(textAnhnagEmail.getText());
+				if (textEmailAbsender.getText().trim().length() == 0) {
+					JOptionPane
+							.showMessageDialog(null, "Das TextFeld ist leer");
+				}
+
 				mail1.createLog();
 				JOptionPane
 						.showMessageDialog(null,
@@ -178,17 +152,22 @@ public class Message extends JFrame implements ActionListener {
 		lblEmailText.setBounds(10, 128, 46, 14);
 		panelEmail.add(lblEmailText);
 		panelEmail.add(btnSenden);
-		
-		textAnhnagName = new JTextField();
-		textAnhnagName.setBounds(126, 104, 67, 20);
-		panelEmail.add(textAnhnagName);
-		textAnhnagName.setColumns(10);
+
+		textAnhnagEmail = new JTextField();
+		textAnhnagEmail.setBounds(126, 104, 67, 20);
+		panelEmail.add(textAnhnagEmail);
+		textAnhnagEmail.setColumns(10);
 		
 		JButton btnAnhang = new JButton("Anhang");
-		btnAnhang.addActionListener(this);
 		btnAnhang.setBounds(235, 104, 89, 23);
 		panelEmail.add(btnAnhang);
 
+
+		
+		crtAct newActc=new crtAct(textAnhnagEmail);					
+		btnAnhang.addActionListener(newActc);
+		
+	
 		JPanel panelSMS = new JPanel();
 		panelSMS.setBackground(Color.LIGHT_GRAY);
 		tabbedPane.addTab("SMS", null, panelSMS, null);
@@ -234,7 +213,7 @@ public class Message extends JFrame implements ActionListener {
 		});
 		btnSMSSenden.setBounds(151, 129, 89, 23);
 		panelSMS.add(btnSMSSenden);
-		
+
 		textAreaSms = new JTextArea();
 		textAreaSms.setBounds(151, 71, 205, 47);
 		panelSMS.add(textAreaSms);
@@ -257,10 +236,15 @@ public class Message extends JFrame implements ActionListener {
 		textMmsEmpfaenger.setColumns(10);
 		textMmsEmpfaenger.setBounds(150, 39, 209, 20);
 		panelMMS.add(textMmsEmpfaenger);
-		
+
+		textAnhangMms = new JTextField();
+		textAnhangMms.setBounds(150, 70, 86, 20);
+		panelMMS.add(textAnhangMms);
+		textAnhangMms.setColumns(10);
+
 		textAreaMms = new JTextArea();
 		textAreaMms.setToolTipText("Hier Text eingeben");
-		textAreaMms.setBounds(150, 70, 209, 57);
+		textAreaMms.setBounds(150, 101, 209, 57);
 		panelMMS.add(textAreaMms);
 
 		JLabel labelTelNRAbsender = new JLabel("TelNr.Absender");
@@ -272,7 +256,7 @@ public class Message extends JFrame implements ActionListener {
 		panelMMS.add(labelTelNrEmpfaenger);
 
 		JLabel labelMmsText = new JLabel("Text");
-		labelMmsText.setBounds(10, 71, 105, 14);
+		labelMmsText.setBounds(10, 106, 105, 14);
 		panelMMS.add(labelMmsText);
 
 		JButton button = new JButton("Senden");
@@ -282,14 +266,28 @@ public class Message extends JFrame implements ActionListener {
 				mms1.setMsgAbsender(textMmsAbsender.getText());
 				mms1.setMsgEmpfaenger(textMmsEmpfaenger.getText());
 				mms1.setMsgText(textAreaMms.getText());
+				mms1.setMmsAnhang(textAnhangMms.getText());
 				mms1.createLog();
 				JOptionPane
 						.showMessageDialog(null,
 								"MMS wurde gesendet für mehr Informationen bitte den Log anschauen");
 			}
 		});
-		button.setBounds(150, 138, 89, 23);
+
+		JLabel lblAnhang = new JLabel("Anhang");
+		lblAnhang.setBounds(10, 67, 67, 14);
+		panelMMS.add(lblAnhang);
+		button.setBounds(150, 169, 89, 23);
 		panelMMS.add(button);
+
+		
+		crtAct newAct=new crtAct(textAnhangMms);
+		JButton btnAnhangMms = new JButton("Anhang");
+
+		btnAnhangMms.addActionListener(newAct);		
+
+		btnAnhangMms.setBounds(270, 70, 89, 23);
+		panelMMS.add(btnAnhangMms);
 
 		JPanel panelPrint = new JPanel();
 		panelPrint.setBackground(Color.LIGHT_GRAY);
@@ -297,7 +295,7 @@ public class Message extends JFrame implements ActionListener {
 		panelPrint.setLayout(null);
 
 		JLabel lblTestDrucker = new JLabel("Text");
-		lblTestDrucker.setBounds(31, 11, 46, 14);
+		lblTestDrucker.setBounds(30, 60, 46, 14);
 		panelPrint.add(lblTestDrucker);
 
 		JButton btnAudrucken = new JButton("Drucken");
@@ -305,17 +303,36 @@ public class Message extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				Print print = new Print();
 				print.setMsgText(textAreaDrucken.getText());
+				print.setPrintAnhang(textAnhangPrint.getText());
 				print.createLog();
 				JOptionPane.showMessageDialog(null, "Ihr Text wird gedruckt");
 
 			}
 		});
-		btnAudrucken.setBounds(113, 116, 89, 23);
+		btnAudrucken.setBounds(113, 148, 89, 23);
 		panelPrint.add(btnAudrucken);
+
+		textAnhangPrint = new JTextField();
+		textAnhangPrint.setBounds(113, 11, 86, 20);
+		panelPrint.add(textAnhangPrint);
+		textAnhangPrint.setColumns(10);
 		
+	
+		JButton btnPrintAnhang = new JButton("Anhang");
+		
+		crtAct newActB=new crtAct(textAnhangPrint);					
+		btnPrintAnhang.addActionListener(newActB);
+
+			
+		btnPrintAnhang.setActionCommand("Anhang");
+		btnPrintAnhang.setBounds(209, 10, 89, 23);
+		panelPrint.add(btnPrintAnhang);
+
 		textAreaDrucken = new JTextArea();
-		textAreaDrucken.setBounds(113, 11, 184, 82);
+		textAreaDrucken.setBounds(113, 55, 184, 82);
 		panelPrint.add(textAreaDrucken);
+		
+
 
 	}
 }
