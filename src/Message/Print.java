@@ -2,24 +2,24 @@ package Message;
 
 
 public class Print extends Message {
-	private String printAnhang;
+	private String printAttachment;
 
 	// Create Log to console and file
 	@Override
 	public void createLog() {
 		String sentPrint = "\nNachricht erfolgreich versendet "
-				+ "\nDrucker : " + getMsgAbsender();
+				+ "\nDrucker : " + getMsgSender() +"\nAnhang: " +getPrintAttachment();
 		log();
 		logger.info(sentPrint);
 
 	}
 
-	public String getPrintAnhang() {
-		return printAnhang;
+	public String getPrintAttachment() {
+		return printAttachment;
 	}
 
-	public void setPrintAnhang(String printAnhang) {
-		this.printAnhang = printAnhang;
+	public void setPrintAnhang(String printAttachment) {
+		this.printAttachment = printAttachment;
 	}
 
 }

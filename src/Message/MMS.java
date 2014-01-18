@@ -1,15 +1,15 @@
 package Message;
 
 public class MMS extends Message {
-	private String mmsAnhang;
+	private String mmsAttachment;
 
 	// Create log to console and file
 	@Override
 	public void createLog() {
 		super.createLog();
-		String sentMMS = output + "\nAnzahl Zeichen: " + getMsgText().length();
+		String sentMMS = output + "\nAnzahl Zeichen: " + "\nAnhang: "
+				+ getMmsAttachment() + getMsgText().length();
 		logger.info(sentMMS);
-		// + "\nAnhang: " + getMsAnhang()
 	}
 
 	public MMS() {
@@ -17,12 +17,12 @@ public class MMS extends Message {
 		this.setMsgType("MMS");
 	}
 
-	public String getMmsAnhang() {
-		return mmsAnhang;
+	public String getMmsAttachment() {
+		return mmsAttachment;
 	}
 
-	public void setMmsAnhang(String mmsAnhang) {
-		this.mmsAnhang = mmsAnhang;
+	public void setMmsAnhang(String mmsAttachment) {
+		this.mmsAttachment = mmsAttachment;
 	}
 
 }

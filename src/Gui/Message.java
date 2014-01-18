@@ -130,8 +130,8 @@ public class Message extends JFrame  {
 			public void actionPerformed(ActionEvent arg0) {
 
 				Email mail1 = new Email();
-				mail1.setMsgAbsender(textEmailAbsender.getText());
-				mail1.setMsgEmpfaenger(textEmailEmpfaenger.getText());
+				mail1.setMsgSender(textEmailAbsender.getText());
+				mail1.setMsgRecipient(textEmailEmpfaenger.getText());
 				mail1.setMsgText(textAreaEmail.getText());
 				mail1.setMsgSubject(textEmailBetreff.getText());
 				mail1.setMsAnhang(textAnhnagEmail.getText());
@@ -201,8 +201,8 @@ public class Message extends JFrame  {
 		btnSMSSenden.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				SMS sms1 = new SMS();
-				sms1.setMsgAbsender(textSmsAbsender.getText());
-				sms1.setMsgEmpfaenger(textSmsEmpfaenger.getText());
+				sms1.setMsgSender(textSmsAbsender.getText());
+				sms1.setMsgRecipient(textSmsEmpfaenger.getText());
 				sms1.setMsgText(textAreaSms.getText());
 				sms1.createLog();
 				JOptionPane
@@ -263,8 +263,8 @@ public class Message extends JFrame  {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MMS mms1 = new MMS();
-				mms1.setMsgAbsender(textMmsAbsender.getText());
-				mms1.setMsgEmpfaenger(textMmsEmpfaenger.getText());
+				mms1.setMsgSender(textMmsAbsender.getText());
+				mms1.setMsgRecipient(textMmsEmpfaenger.getText());
 				mms1.setMsgText(textAreaMms.getText());
 				mms1.setMmsAnhang(textAnhangMms.getText());
 				mms1.createLog();

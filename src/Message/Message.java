@@ -10,13 +10,13 @@ public abstract class Message {
 
 	protected String msgType;
 	protected String msgText;
-	private String msgEmpfaenger;
-	private String msgRecipien;
-	private String msgAbsender;
+	private String msgRecipient;
+	// private String msgRecipien;
+	private String msgSender;
 	public String output;
 
 	Scanner scan = new Scanner(System.in);
-	Logger logger = Logger.getLogger("MyLog");
+	Logger logger = Logger.getLogger("Log");
 	FileHandler fh;
 
 	public String getMsgType() {
@@ -43,61 +43,40 @@ public abstract class Message {
 
 	}
 
-	public String getMsgRecipien() {
-		return msgRecipien;
-	}
+	/*
+	 * public String getMsgRecipien() { return msgRecipien; }
+	 * 
+	 * // scan recipient public void scanMsgRecipien() {
+	 * 
+	 * boolean inputError3 = false; boolean inputError4 = false; do { //
+	 * Usereingabe: Empfaenger if (inputError3) { System.out
+	 * .println("Der Empfaenger ist auf der Blacklist. Bitte neu eingeben:"); }
+	 * 
+	 * do { if (inputError4) { System.out
+	 * .println("Emfpaenger darf keine Leerzeichen enthalten. Bitte neu eingeben:"
+	 * ); }
+	 * 
+	 * if (!inputError4) { System.out.println("Bitte Emfpaenger eingeben: "); }
+	 * msgRecipien = scan.nextLine(); inputError4 =
+	 * msgRecipien.matches(".*\\s+.*");
+	 * 
+	 * } while (inputError4);// Emfpaenger auf Leerzeichen ueberpruefen
+	 * 
+	 * // die Variable onBlackl wird nach der Blacklistueberpruefung auf true
+	 * (gesperrt) oder false (ok) gesetzt
+	 * 
+	 * // ueberpruefen ob Empfaenger auf der Blacklist ist Code import von*
+	 * Fabian // Wird temporaer auf false gesetzt // TODO Blacklisthandler
+	 * 
+	 * boolean onBlackl = false;
+	 * 
+	 * if (onBlackl == true// Empfaenger auf Sperrset ) { //Fehlermeldung
+	 * "Empfaenger auf Sperset" inputError3 = true; } else { // fehler = false
+	 * inputError3 = false; } } while (inputError3 == true // Fehler = true
+	 * (Empfaenger auf Sperrset) ); }
+	 */
 
-	// scan recipient
-	public void scanMsgRecipien() {
-
-		boolean inputError3 = false;
-		boolean inputError4 = false;
-		do {
-			// Usereingabe: Empfaenger
-			if (inputError3) {
-				System.out
-						.println("Der Empfaenger ist auf der Blacklist. Bitte neu eingeben:");
-			}
-
-			do {
-				if (inputError4) {
-					System.out
-							.println("Emfpaenger darf keine Leerzeichen enthalten. Bitte neu eingeben:");
-				}
-
-				if (!inputError4) {
-					System.out.println("Bitte Emfpaenger eingeben: ");
-				}
-				msgRecipien = scan.nextLine();
-				inputError4 = msgRecipien.matches(".*\\s+.*");
-
-			} while (inputError4);/* Emfpaenger auf Leerzeichen ueberpruefen */
-
-			/*
-			 * die Variable onBlackl wird nach der Blacklistueberpruefung auf
-			 * true (gesperrt) oder false (ok) gesetzt
-			 */
-			/*
-			 * ueberpruefen ob Empfaenger auf der Blacklist ist Code import von
-			 * Fabian
-			 */
-			// Wird temporaer auf false gesetzt
-			// TODO Blacklisthandler
-
-			boolean onBlackl = false;
-
-			if (onBlackl == true/* Empfaenger auf Sperrset */) {
-				/* Fehlermeldung "Empfaenger auf Sperset" */
-				inputError3 = true;
-			} else {
-				// fehler = false
-				inputError3 = false;
-			}
-		} while (inputError3 == true
-		// Fehler = true (Empfaenger auf Sperrset)
-		);
-	}
-
+	// create logfile
 	public void log() {
 		try {
 			// logfile size limit 1MB
@@ -117,33 +96,31 @@ public abstract class Message {
 
 	}
 
-	// Create Logfile at console
+	// log output
 	public void createLog() {
 		this.output = "\nNachricht erfolgreich versendet " + "\nAbsender : "
-				+ getMsgAbsender() + "\nEmpfaenger: " + getMsgEmpfaenger()
+				+ getMsgSender() + "\nEmpfaenger: " + getMsgRecipient()
 				+ "\nInhalt: " + getMsgText();
-
-		// create logfile and entries
 		log();
 	}
 
 	public Message() {
 	}
 
-	public String getMsgAbsender() {
-		return msgAbsender;
+	public String getMsgSender() {
+		return msgSender;
 	}
 
-	public void setMsgAbsender(String msgAbsender) {
-		this.msgAbsender = msgAbsender;
+	public void setMsgSender(String msgSender) {
+		this.msgSender = msgSender;
 	}
 
-	public String getMsgEmpfaenger() {
-		return msgEmpfaenger;
+	public String getMsgRecipient() {
+		return msgRecipient;
 	}
 
-	public void setMsgEmpfaenger(String msgEmpfaenger) {
-		this.msgEmpfaenger = msgEmpfaenger;
+	public void setMsgRecipient(String msgRecipient) {
+		this.msgRecipient = msgRecipient;
 	}
 
 }

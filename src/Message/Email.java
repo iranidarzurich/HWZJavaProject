@@ -2,7 +2,7 @@ package Message;
 
 public class Email extends Message {
 	private String msgSubject;
-	private String msAnhang;
+	private String emailAttachment;
 
 	public void setMsgSubject(String msgSubject) {
 		this.msgSubject = msgSubject;
@@ -12,12 +12,12 @@ public class Email extends Message {
 		return msgSubject;
 	}
 
-	public String getMsAnhang() {
-		return msAnhang;
+	public String getMsgAttachment() {
+		return emailAttachment;
 	}
 
-	public void setMsAnhang(String msAnhang) {
-		this.msAnhang = msAnhang;
+	public void setMsAnhang(String emailAttachment) {
+		this.emailAttachment = emailAttachment;
 	}
 
 	public Email() {
@@ -30,8 +30,7 @@ public class Email extends Message {
 	public void createLog() {
 		super.createLog();
 		String sentEmail = output + "\nBetreff: " + this.getMsgSubject()
-				+ "\nAnhang: " + getMsAnhang() + "\nAnzahl Zeichen: "
-				+ getMsgText().length();
+				+ "\nAnhang: " + getMsgAttachment();
 		logger.info(sentEmail);
 	}
 }
