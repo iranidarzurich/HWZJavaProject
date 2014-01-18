@@ -6,7 +6,7 @@ public class SMS extends Message {
 	@Override
 	public void createLog() {
 		super.createLog();
-		String sentSMS = output + "\nAnzahl Zeichen: " + getMsgText().length();
+		String sentSMS = output + "\r\nAnzahl Zeichen: " + getMsgText().length();
 		logger.info(sentSMS);
 	}
 }

@@ -98,9 +98,9 @@ public abstract class Message {
 
 	// log output
 	public void createLog() {
-		this.output = "\nNachricht erfolgreich versendet " + "\nAbsender : "
-				+ getMsgSender() + "\nEmpfaenger: " + getMsgRecipient()
-				+ "\nInhalt: " + getMsgText();
+		this.output = "\r\nNachricht erfolgreich versendet " + "\r\nAbsender : "
+				+ getMsgSender() + "\r\nEmpfaenger: " + getMsgRecipient()
+				+ "\r\nInhalt: " + getMsgText();
 		log();
 	}
 

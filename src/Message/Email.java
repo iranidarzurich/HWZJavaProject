@@ -29,8 +29,8 @@ public class Email extends Message {
 	@Override
 	public void createLog() {
 		super.createLog();
-		String sentEmail = output + "\nBetreff: " + this.getMsgSubject()
-				+ "\nAnhang: " + getMsgAttachment();
+		String sentEmail = output + "\r\nBetreff: " + this.getMsgSubject()
+				+ "\r\nAnhang: " + getMsgAttachment();
 		logger.info(sentEmail);
 	}
 }

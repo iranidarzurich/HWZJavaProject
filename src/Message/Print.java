@@ -7,8 +7,8 @@ public class Print extends Message {
 	// Create Log to console and file
 	@Override
 	public void createLog() {
-		String sentPrint = "\nNachricht erfolgreich versendet "
-				+ "\nDrucker : " + getMsgSender() +"\nAnhang: " +getPrintAttachment();
+		String sentPrint = "\r\nNachricht erfolgreich versendet "
+				+ "\r\nDrucker : " + getMsgSender() +"\r\nAnhang: " +getPrintAttachment();
 		log();
 		logger.info(sentPrint);
 
