@@ -21,8 +21,7 @@ public class Email extends Message {
 	}
 
 	public Email() {
-		super();
-		this.setMsgType("Mail");
+
 	}
 
 	// Create log to console and file

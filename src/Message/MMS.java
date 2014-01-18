@@ -13,8 +13,7 @@ public class MMS extends Message {
 	}
 
 	public MMS() {
-		super();
-		this.setMsgType("MMS");
+
 	}
 
 	public String getMmsAttachment() {
