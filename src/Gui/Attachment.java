@@ -8,7 +8,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-public class attachment extends JFrame implements ActionListener {
+public class Attachment extends JFrame implements ActionListener {
 	/**
 	 * 
 	 */
@@ -18,7 +18,7 @@ public class attachment extends JFrame implements ActionListener {
 	private String name;
 	private JTextField attachment;
 
-	public attachment(JTextField attachment) {
+	public Attachment(JTextField attachment) {
 		this.attachment = attachment;
 	}
 

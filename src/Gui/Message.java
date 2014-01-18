@@ -45,9 +45,7 @@ public class Message extends JFrame  {
 	private JTextArea textAreaDrucken;
 	private JTextField textAnhnagEmail;
 	private JTextField textAnhangMms;
-//	private JFileChooser chooser;
-	String choosertitle;
-	String iname;
+
 	private JTextField textAnhangPrint;
 
 	/**
@@ -164,8 +162,8 @@ public class Message extends JFrame  {
 
 
 		
-		crtAct newActc=new crtAct(textAnhnagEmail);					
-		btnAnhang.addActionListener(newActc);
+		Attachment newAtt1=new Attachment(textAnhnagEmail);					
+		btnAnhang.addActionListener(newAtt1);
 		
 	
 		JPanel panelSMS = new JPanel();
@@ -279,13 +277,10 @@ public class Message extends JFrame  {
 		panelMMS.add(lblAnhang);
 		button.setBounds(150, 169, 89, 23);
 		panelMMS.add(button);
-
 		
-		crtAct newAct=new crtAct(textAnhangMms);
+		Attachment newAtt2=new Attachment(textAnhangMms);
 		JButton btnAnhangMms = new JButton("Anhang");
-
-		btnAnhangMms.addActionListener(newAct);		
-
+		btnAnhangMms.addActionListener(newAtt2);	
 		btnAnhangMms.setBounds(270, 70, 89, 23);
 		panelMMS.add(btnAnhangMms);
 
@@ -318,12 +313,10 @@ public class Message extends JFrame  {
 		textAnhangPrint.setColumns(10);
 		
 	
-		JButton btnPrintAnhang = new JButton("Anhang");
-		
-		crtAct newActB=new crtAct(textAnhangPrint);					
-		btnPrintAnhang.addActionListener(newActB);
+		JButton btnPrintAnhang = new JButton("Anhang");		
+		Attachment newAtt3=new Attachment(textAnhangPrint);					
+		btnPrintAnhang.addActionListener(newAtt3);
 
-			
 		btnPrintAnhang.setActionCommand("Anhang");
 		btnPrintAnhang.setBounds(209, 10, 89, 23);
 		panelPrint.add(btnPrintAnhang);
