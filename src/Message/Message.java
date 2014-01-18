@@ -134,8 +134,8 @@ public abstract class Message {
 		// create logfile and entries
 
 		log();
-		// logger.info(output);
-		logger.warning(output);
+		logger.info(output);
+		
 
 	}
 
