@@ -48,56 +48,37 @@ public abstract class Message {
 		return msgRecipien;
 	}
 
-	// scan recipient
-	public void scanMsgRecipien() {
-
-		boolean inputError3 = false;
-		boolean inputError4 = false;
-		do {
-			// Usereingabe: Empfaenger
-			if (inputError3) {
-				System.out
-						.println("Der Empfaenger ist auf der Blacklist. Bitte neu eingeben:");
-			}
-
-			do {
-				if (inputError4) {
-					System.out
-							.println("Emfpaenger darf keine Leerzeichen enthalten. Bitte neu eingeben:");
-				}
-
-				if (!inputError4) {
-					System.out.println("Bitte Emfpaenger eingeben: ");
-				}
-				msgRecipien = scan.nextLine();
-				inputError4 = msgRecipien.matches(".*\\s+.*");
-
-			} while (inputError4);/* Emfpaenger auf Leerzeichen ueberpruefen */
-
-			/*
-			 * die Variable onBlackl wird nach der Blacklistueberpruefung auf
-			 * true (gesperrt) oder false (ok) gesetzt
-			 */
-			/*
-			 * ueberpruefen ob Empfaenger auf der Blacklist ist Code import von
-			 * Fabian
-			 */
-			// Wird temporaer auf false gesetzt
-			// TODO Blacklisthandler
-
-			boolean onBlackl = false;
-
-			if (onBlackl == true/* Empfaenger auf Sperrset */) {
-				/* Fehlermeldung "Empfaenger auf Sperset" */
-				inputError3 = true;
-			} else {
-				// fehler = false
-				inputError3 = false;
-			}
-		} while (inputError3 == true
-		// Fehler = true (Empfaenger auf Sperrset)
-		);
-	}
+	/*
+	 * // scan recipient public void scanMsgRecipien() {
+	 * 
+	 * boolean inputError3 = false; boolean inputError4 = false; do { //
+	 * Usereingabe: Empfaenger if (inputError3) { System.out
+	 * .println("Der Empfaenger ist auf der Blacklist. Bitte neu eingeben:"); }
+	 * 
+	 * do { if (inputError4) { System.out
+	 * .println("Emfpaenger darf keine Leerzeichen enthalten. Bitte neu eingeben:"
+	 * ); }
+	 * 
+	 * if (!inputError4) { System.out.println("Bitte Emfpaenger eingeben: "); }
+	 * msgRecipien = scan.nextLine(); inputError4 =
+	 * msgRecipien.matches(".*\\s+.*");
+	 * 
+	 * } while (inputError4);// Emfpaenger auf Leerzeichen ueberpruefen
+	 * 
+	 * 
+	 * die Variable onBlackl wird nach der Blacklistueberpruefung auf true
+	 * (gesperrt) oder false (ok) gesetzt
+	 * 
+	 * 
+	 * // Wird temporaer auf false gesetzt // TODO Blacklisthandler
+	 * 
+	 * boolean onBlackl = false;
+	 * 
+	 * if (onBlackl == true// Empfaenger auf Sperrset ) { // Fehlermeldung
+	 * "Empfaenger auf Sperset" inputError3 = true; } else { // fehler = false
+	 * inputError3 = false; } } while (inputError3 == true // Fehler = true
+	 * (Empfaenger auf Sperrset) ); }
+	 */
 
 	// Create Logfile at console
 	public void createLog() {
