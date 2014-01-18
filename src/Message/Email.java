@@ -1,6 +1,6 @@
 package Message;
 
-
+//hallo
 
 public class Email extends Message {
 	private String msgSubject;
