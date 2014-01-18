@@ -1,18 +1,12 @@
 package Message;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-
-import com.sun.jmx.snmp.Timestamp;
 
 public abstract class Message {
 
@@ -21,6 +15,7 @@ public abstract class Message {
 	private String msgEmpfaenger;
 	private String msgRecipien;
 	private String msgAbsender;
+	public String output;
 
 	Scanner scan = new Scanner(System.in);
 	Logger logger = Logger.getLogger("MyLog");
@@ -121,21 +116,26 @@ public abstract class Message {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
+	
 
 	// Create Logfile at console
 	public void createLog() {
-		SimpleDateFormat formatter = new SimpleDateFormat(
-				"dd.MM.yyyy 'at' HH:mm:ss ");
-		Date currentTime = new Date();
-		String ausgabe = "\nNachricht erfolgreich verschickt " + "\n"
+		/*
+		 * SimpleDateFormat formatter = new SimpleDateFormat(
+		 * "dd.MM.yyyy 'at' HH:mm:ss "); Date currentTime = new Date();
+		 */
+		this.output = "\nNachricht erfolgreich verschickt " + "\n"
 				+ "\nAbsender : " + getMsgAbsender() + "\nEmpfaenger: "
 				+ getMsgEmpfaenger() + "\nInhalt: " + getMsgText();
 		// System.out.println(ausgabe);
 
 		// create logfile and entries
+
 		log();
-		logger.info(ausgabe);
+		// logger.info(output);
+		logger.warning(output);
 
 	}
 
