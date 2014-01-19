@@ -167,9 +167,9 @@ public class Message extends JFrame {
 		labelAbsender.setBounds(10, 14, 86, 14);
 		panelEmail.add(labelAbsender);
 
-		JLabel lblEmpfnger = new JLabel("Empfaenger");
-		lblEmpfnger.setBounds(10, 45, 86, 14);
-		panelEmail.add(lblEmpfnger);
+		JLabel lblRecipient = new JLabel("Empfänger");
+		lblRecipient.setBounds(10, 45, 86, 14);
+		panelEmail.add(lblRecipient);
 
 		JLabel lblEmailBetreff = new JLabel("Betreff");
 		lblEmailBetreff.setBounds(10, 76, 86, 14);
