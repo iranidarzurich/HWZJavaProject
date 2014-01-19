@@ -1,6 +1,5 @@
 package Message;
 
-
 public class Print extends Message {
 	private String printAttachment;
 
@@ -8,7 +7,8 @@ public class Print extends Message {
 	@Override
 	public void createLog() {
 		String sentPrint = "\r\nNachricht erfolgreich versendet "
-				+ "\r\nDrucker : " + getMsgSender() +"\r\nAnhang: " +getPrintAttachment();
+				+ "\r\nDrucker : " + getMsgSender() + "\r\nAnhang: "
+				+ getPrintAttachment() + "\r\n";
 		log();
 		logger.info(sentPrint);
 

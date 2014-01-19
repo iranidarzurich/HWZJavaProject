@@ -29,7 +29,7 @@ public class Email extends Message {
 	public void createLog() {
 		super.createLog();
 		String sentEmail = output + "\r\nBetreff: " + this.getMsgSubject()
-				+ "\r\nAnhang: " + getMsgAttachment();
+				+ "\r\nAnhang: " + getMsgAttachment() + "\r\n";
 		logger.info(sentEmail);
 	}
 }

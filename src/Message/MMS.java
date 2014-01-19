@@ -7,8 +7,8 @@ public class MMS extends Message {
 	@Override
 	public void createLog() {
 		super.createLog();
-		String sentMMS = output + "\r\nAnzahl Zeichen: " + "\r\nAnhang: "
-				+ getMmsAttachment() + getMsgText().length();
+		String sentMMS = output + "\r\nAnzahl Zeichen: "
+				+ getMsgText().length() + "\r\nAnhang: " + getMmsAttachment() +"\r\n";
 		logger.info(sentMMS);
 	}
 
