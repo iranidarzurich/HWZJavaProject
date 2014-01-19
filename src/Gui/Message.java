@@ -14,12 +14,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import Message.Email;
+import Message.Login;
 import Message.MMS;
 import Message.Print;
 import Message.SMS;
@@ -27,7 +29,7 @@ import Message.SMS;
 /**
  * 
  */
-public class Message extends JFrame  {
+public class Message extends JFrame {
 	/**
 	 * 
 	 */
@@ -45,8 +47,9 @@ public class Message extends JFrame  {
 	private JTextArea textAreaDrucken;
 	private JTextField textAnhnagEmail;
 	private JTextField textAnhangMms;
-
 	private JTextField textAnhangPrint;
+	private JTextField textUsername;
+	private JPasswordField passwordLogin;
 
 	/**
 	 * Launch the application.
@@ -67,20 +70,66 @@ public class Message extends JFrame  {
 	/**
 	 * Create the frame.
 	 */
-	
 
-	
-		//*/
+	// */
 	public Message() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(600, 150, 451, 429);
-		setTitle("New Software");
+		setTitle("JAVA PROJEKT");
 		getContentPane().setLayout(null);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBackground(Color.LIGHT_GRAY);
 		tabbedPane.setBounds(0, 0, 434, 462);
 		getContentPane().add(tabbedPane);
+
+		JPanel panelLogin = new JPanel();
+		panelLogin.setBackground(Color.LIGHT_GRAY);
+		tabbedPane.addTab("Login", null, panelLogin, null);
+		panelLogin.setLayout(null);
+
+		JLabel lblInputUsernameAndPassword = new JLabel(
+				"Ihre Username und Passwort eingeben");
+		lblInputUsernameAndPassword.setBounds(99, 104, 275, 14);
+		panelLogin.add(lblInputUsernameAndPassword);
+
+		JLabel lblUsername = new JLabel("UserName:");
+		lblUsername.setBounds(28, 132, 87, 14);
+		panelLogin.add(lblUsername);
+
+		JLabel lblPassword = new JLabel("Password:");
+		lblPassword.setBounds(28, 168, 75, 14);
+		panelLogin.add(lblPassword);
+
+		textUsername = new JTextField();
+		textUsername.setBounds(168, 129, 120, 20);
+		panelLogin.add(textUsername);
+		textUsername.setColumns(10);
+
+		passwordLogin = new JPasswordField();
+		passwordLogin.setBounds(168, 165, 120, 20);
+		panelLogin.add(passwordLogin);
+
+		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent arg0) {
+				Login login = new Login();
+				login.setUserName(textUsername.getText());
+				login.setPassword(passwordLogin.getText());
+				if (textUsername.getText().trim().length() == 0
+						|| passwordLogin.getText().length() == 0) {
+					JOptionPane.showMessageDialog(null,
+							"Das Feld Passwort oder Username ist leer",
+							"Leere Felder", JOptionPane.ERROR_MESSAGE);
+				}
+				login.compare();
+
+			}
+		});
+		btnLogin.setBounds(168, 207, 120, 23);
+		panelLogin.add(btnLogin);
 
 		JPanel panelEmail = new JPanel();
 		panelEmail.setBackground(Color.LIGHT_GRAY);
@@ -134,14 +183,18 @@ public class Message extends JFrame  {
 				mail1.setMsgSubject(textEmailBetreff.getText());
 				mail1.setMsAnhang(textAnhnagEmail.getText());
 				if (textEmailAbsender.getText().trim().length() == 0) {
-					JOptionPane
-							.showMessageDialog(null, "Das TextFeld ist leer");
+					JOptionPane.showMessageDialog(null,
+							"Das TextFeld ist leer", "leere Felder",
+							JOptionPane.ERROR_MESSAGE);
 				}
 
 				mail1.createLog();
 				JOptionPane
-						.showMessageDialog(null,
-								"Email wurde gesendet für mehr Informationen bitte den Log anschauen");
+						.showMessageDialog(
+								null,
+								"Email wurde gesendet \n für mehr Informationen bitte den Log anschauen",
+								"Gesendete Email",
+								JOptionPane.INFORMATION_MESSAGE);
 
 			}
 		});
@@ -155,17 +208,14 @@ public class Message extends JFrame  {
 		textAnhnagEmail.setBounds(126, 104, 67, 20);
 		panelEmail.add(textAnhnagEmail);
 		textAnhnagEmail.setColumns(10);
-		
+
 		JButton btnAnhang = new JButton("Anhang");
 		btnAnhang.setBounds(235, 104, 89, 23);
 		panelEmail.add(btnAnhang);
 
-
-		
-		Attachment newAtt1=new Attachment(textAnhnagEmail);					
+		Attachment newAtt1 = new Attachment(textAnhnagEmail);
 		btnAnhang.addActionListener(newAtt1);
-		
-	
+
 		JPanel panelSMS = new JPanel();
 		panelSMS.setBackground(Color.LIGHT_GRAY);
 		tabbedPane.addTab("SMS", null, panelSMS, null);
@@ -277,10 +327,10 @@ public class Message extends JFrame  {
 		panelMMS.add(lblAnhang);
 		button.setBounds(150, 169, 89, 23);
 		panelMMS.add(button);
-		
-		Attachment newAtt2=new Attachment(textAnhangMms);
+
+		Attachment newAtt2 = new Attachment(textAnhangMms);
 		JButton btnAnhangMms = new JButton("Anhang");
-		btnAnhangMms.addActionListener(newAtt2);	
+		btnAnhangMms.addActionListener(newAtt2);
 		btnAnhangMms.setBounds(270, 70, 89, 23);
 		panelMMS.add(btnAnhangMms);
 
@@ -311,10 +361,9 @@ public class Message extends JFrame  {
 		textAnhangPrint.setBounds(113, 11, 86, 20);
 		panelPrint.add(textAnhangPrint);
 		textAnhangPrint.setColumns(10);
-		
-	
-		JButton btnPrintAnhang = new JButton("Anhang");		
-		Attachment newAtt3=new Attachment(textAnhangPrint);					
+
+		JButton btnPrintAnhang = new JButton("Anhang");
+		Attachment newAtt3 = new Attachment(textAnhangPrint);
 		btnPrintAnhang.addActionListener(newAtt3);
 
 		btnPrintAnhang.setActionCommand("Anhang");
@@ -324,8 +373,6 @@ public class Message extends JFrame  {
 		textAreaDrucken = new JTextArea();
 		textAreaDrucken.setBounds(113, 55, 184, 82);
 		panelPrint.add(textAreaDrucken);
-		
-
 
 	}
 }
