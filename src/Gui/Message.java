@@ -419,7 +419,7 @@ public class Message extends JFrame {
 		panelPrint.add(btnPrintAnhang);
 
 		textAreaPrint = new JTextArea();
-		textAreaPrint.setToolTipText("Hier text eingeben");
+		textAreaPrint.setToolTipText("Hier Text eingeben");
 		textAreaPrint.setBounds(114, 80, 197, 82);
 		panelPrint.add(textAreaPrint);
 
