@@ -183,9 +183,7 @@ public class Message extends JFrame {
 				mail1.setMsgSubject(textEmailBetreff.getText());
 				mail1.setMsAnhang(textAnhnagEmail.getText());
 				if (textEmailAbsender.getText().trim().length() == 0
-						|| textEmailEmpfaenger.getText().trim().length() == 0
-						|| textAreaEmail.getText().trim().length() == 0
-						|| textEmailBetreff.getText().trim().length() == 0) {
+						|| textEmailEmpfaenger.getText().trim().length() == 0) {
 					JOptionPane
 							.showMessageDialog(
 									null,
