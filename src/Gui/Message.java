@@ -115,6 +115,8 @@ public class Message extends JFrame {
 		panelLogin.add(passwordLogin);
 
 		JButton btnLogin = new JButton("Login");
+		btnLogin.setBounds(168, 207, 120, 23);
+		panelLogin.add(btnLogin);
 		btnLogin.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
@@ -132,8 +134,7 @@ public class Message extends JFrame {
 				}
 			}
 		});
-		btnLogin.setBounds(168, 207, 120, 23);
-		panelLogin.add(btnLogin);
+		
 
 		JPanel panelEmail = new JPanel();
 		panelEmail.setBackground(Color.LIGHT_GRAY);
@@ -254,6 +255,8 @@ public class Message extends JFrame {
 		panelSMS.add(lblSmsText);
 
 		JButton btnSMSSenden = new JButton("Senden");
+		btnSMSSenden.setBounds(151, 129, 89, 23);
+		panelSMS.add(btnSMSSenden);
 		btnSMSSenden.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				SMS sms1 = new SMS();
@@ -279,8 +282,7 @@ public class Message extends JFrame {
 				}
 			}
 		});
-		btnSMSSenden.setBounds(151, 129, 89, 23);
-		panelSMS.add(btnSMSSenden);
+		
 
 		textAreaSms = new JTextArea();
 		textAreaSms.setBounds(151, 71, 205, 47);
@@ -376,6 +378,8 @@ public class Message extends JFrame {
 		panelPrint.add(lblTestDrucker);
 
 		JButton btnAudrucken = new JButton("Drucken");
+		btnAudrucken.setBounds(113, 173, 89, 23);
+		panelPrint.add(btnAudrucken);
 		btnAudrucken.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Print print = new Print();
@@ -401,8 +405,7 @@ public class Message extends JFrame {
 				}
 			}
 		});
-		btnAudrucken.setBounds(113, 173, 89, 23);
-		panelPrint.add(btnAudrucken);
+		
 
 		textAnhangPrint = new JTextField();
 		textAnhangPrint.setBounds(113, 49, 99, 20);
@@ -422,8 +425,9 @@ public class Message extends JFrame {
 		panelPrint.add(textAreaDrucken);
 
 		comboBoxChoosPrinter = new JComboBox(printerName);
-		comboBoxChoosPrinter.setBounds(222, 11, 89, 20);
+		comboBoxChoosPrinter.setBounds(222, 17, 89, 20);
 		panelPrint.add(comboBoxChoosPrinter);
-
+		
+		
 	}
 }
