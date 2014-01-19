@@ -10,13 +10,15 @@ public abstract class Message {
 
 	private String msgText;
 	private String msgRecipient;
-	// private String msgRecipien;
 	private String msgSender;
-	public String output;
+	protected String output;
 
 	Scanner scan = new Scanner(System.in);
 	Logger logger = Logger.getLogger("Log");
 	FileHandler fh;
+
+	public Message() {
+	}
 
 	public void setMsgText(String msgText) {
 		this.msgText = msgText;
@@ -24,6 +26,22 @@ public abstract class Message {
 
 	public String getMsgText() {
 		return msgText;
+	}
+
+	public String getMsgSender() {
+		return msgSender;
+	}
+
+	public void setMsgSender(String msgSender) {
+		this.msgSender = msgSender;
+	}
+
+	public String getMsgRecipient() {
+		return msgRecipient;
+	}
+
+	public void setMsgRecipient(String msgRecipient) {
+		this.msgRecipient = msgRecipient;
 	}
 
 	// create logfile
@@ -52,25 +70,6 @@ public abstract class Message {
 				+ "\r\nAbsender : " + getMsgSender() + "\r\nEmpfaenger: "
 				+ getMsgRecipient();
 		log();
-	}
-
-	public Message() {
-	}
-
-	public String getMsgSender() {
-		return msgSender;
-	}
-
-	public void setMsgSender(String msgSender) {
-		this.msgSender = msgSender;
-	}
-
-	public String getMsgRecipient() {
-		return msgRecipient;
-	}
-
-	public void setMsgRecipient(String msgRecipient) {
-		this.msgRecipient = msgRecipient;
 	}
 
 }

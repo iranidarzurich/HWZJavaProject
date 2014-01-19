@@ -4,12 +4,15 @@ public class Email extends Message {
 	private String msgSubject;
 	private String emailAttachment;
 
-	public void setMsgSubject(String msgSubject) {
-		this.msgSubject = msgSubject;
+	public Email() {
 	}
 
 	public String getMsgSubject() {
 		return msgSubject;
+	}
+
+	public void setMsgSubject(String msgSubject) {
+		this.msgSubject = msgSubject;
 	}
 
 	public String getMsgAttachment() {
@@ -18,10 +21,6 @@ public class Email extends Message {
 
 	public void setMsAnhang(String emailAttachment) {
 		this.emailAttachment = emailAttachment;
-	}
-
-	public Email() {
-
 	}
 
 	// Create log to console and file

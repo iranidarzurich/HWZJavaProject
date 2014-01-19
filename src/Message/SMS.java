@@ -2,6 +2,9 @@ package Message;
 
 public class SMS extends Message {
 
+	public SMS() {
+	}
+
 	// Create log to console and file
 	@Override
 	public void createLog() {
