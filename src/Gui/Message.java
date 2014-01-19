@@ -241,11 +241,11 @@ public class Message extends JFrame {
 		panelSMS.add(textSmsRecipient);
 		textSmsRecipient.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("TelNr.Absender");
+		JLabel lblNewLabel = new JLabel("TelNr. Absender");
 		lblNewLabel.setBounds(10, 14, 105, 14);
 		panelSMS.add(lblNewLabel);
 
-		JLabel lblTelNrEmpfnger = new JLabel("TelNr.Empfaenger");
+		JLabel lblTelNrEmpfnger = new JLabel("TelNr. Empfänger");
 		lblTelNrEmpfnger.setBounds(10, 45, 105, 14);
 		panelSMS.add(lblTelNrEmpfnger);
 
@@ -316,11 +316,11 @@ public class Message extends JFrame {
 		textAreaMms.setBounds(150, 101, 209, 57);
 		panelMMS.add(textAreaMms);
 
-		JLabel labelTelNRAbsender = new JLabel("TelNr.Absender");
+		JLabel labelTelNRAbsender = new JLabel("TelNr. Absender");
 		labelTelNRAbsender.setBounds(10, 14, 105, 14);
 		panelMMS.add(labelTelNRAbsender);
 
-		JLabel labelTelNrEmpfaenger = new JLabel("TelNr.Empfaenger");
+		JLabel labelTelNrEmpfaenger = new JLabel("TelNr. Empfänger");
 		labelTelNrEmpfaenger.setBounds(10, 42, 105, 14);
 		panelMMS.add(labelTelNrEmpfaenger);
 
