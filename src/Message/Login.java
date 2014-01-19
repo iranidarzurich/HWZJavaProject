@@ -27,7 +27,7 @@ public class Login {
 	public void compare() {
 		Login login = new Login();
 		if (login.getUserName().equals(this.userName)
-				|| login.getPassword().endsWith(this.password)) {
+				&& login.getPassword().equals(this.password)) {
 
 			JOptionPane.showMessageDialog(null, "Sie sind eingeloggt", "Login",
 					JOptionPane.INFORMATION_MESSAGE);

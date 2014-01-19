@@ -52,7 +52,7 @@ public class Message extends JFrame {
 	private JTextField textUsername;
 	private JPasswordField passwordLogin;
 	private JComboBox comboBoxChoosPrinter;
-	String[] printerName = { "HP", "Cannon" };
+	private static String[] printerName = { "HP", "Cannon" };
 
 	/**
 	 * Launch the application.
