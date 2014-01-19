@@ -154,7 +154,7 @@ public class Message extends JFrame {
 
 		textEmailSubject = new JTextField();
 		textEmailSubject.setBounds(126, 73, 199, 20);
-		textEmailSubject.setToolTipText("Geben Sie bitte einen Betrff ein");
+		textEmailSubject.setToolTipText("Geben Sie bitte einen Betreff ein");
 		textEmailSubject.setColumns(10);
 		panelEmail.add(textEmailSubject);
 
