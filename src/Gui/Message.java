@@ -25,6 +25,7 @@ import Message.Login;
 import Message.MMS;
 import Message.Print;
 import Message.SMS;
+import javax.swing.JComboBox;
 
 /**
  * 
@@ -50,6 +51,8 @@ public class Message extends JFrame {
 	private JTextField textAnhangPrint;
 	private JTextField textUsername;
 	private JPasswordField passwordLogin;
+	private JComboBox comboBoxChoosPrinter;
+	String[] printerName = { "HP", "Cannon" };
 
 	/**
 	 * Launch the application.
@@ -210,7 +213,7 @@ public class Message extends JFrame {
 		panelEmail.add(btnSenden);
 
 		textAnhnagEmail = new JTextField();
-		textAnhnagEmail.setBounds(126, 104, 67, 20);
+		textAnhnagEmail.setBounds(126, 104, 99, 20);
 		panelEmail.add(textAnhnagEmail);
 		textAnhnagEmail.setColumns(10);
 
@@ -303,7 +306,7 @@ public class Message extends JFrame {
 		panelMMS.add(textMmsEmpfaenger);
 
 		textAnhangMms = new JTextField();
-		textAnhangMms.setBounds(150, 70, 86, 20);
+		textAnhangMms.setBounds(150, 70, 110, 20);
 		panelMMS.add(textAnhangMms);
 		textAnhangMms.setColumns(10);
 
@@ -369,7 +372,7 @@ public class Message extends JFrame {
 		panelPrint.setLayout(null);
 
 		JLabel lblTestDrucker = new JLabel("Text");
-		lblTestDrucker.setBounds(30, 60, 46, 14);
+		lblTestDrucker.setBounds(27, 80, 46, 14);
 		panelPrint.add(lblTestDrucker);
 
 		JButton btnAudrucken = new JButton("Drucken");
@@ -397,11 +400,11 @@ public class Message extends JFrame {
 				}
 			}
 		});
-		btnAudrucken.setBounds(113, 148, 89, 23);
+		btnAudrucken.setBounds(113, 173, 89, 23);
 		panelPrint.add(btnAudrucken);
 
 		textAnhangPrint = new JTextField();
-		textAnhangPrint.setBounds(113, 11, 86, 20);
+		textAnhangPrint.setBounds(113, 49, 99, 20);
 		panelPrint.add(textAnhangPrint);
 		textAnhangPrint.setColumns(10);
 
@@ -410,12 +413,16 @@ public class Message extends JFrame {
 		btnPrintAnhang.addActionListener(newAtt3);
 
 		btnPrintAnhang.setActionCommand("Anhang");
-		btnPrintAnhang.setBounds(209, 10, 89, 23);
+		btnPrintAnhang.setBounds(222, 48, 89, 23);
 		panelPrint.add(btnPrintAnhang);
 
 		textAreaDrucken = new JTextArea();
-		textAreaDrucken.setBounds(113, 55, 184, 82);
+		textAreaDrucken.setBounds(114, 80, 197, 82);
 		panelPrint.add(textAreaDrucken);
+
+		comboBoxChoosPrinter = new JComboBox(printerName);
+		comboBoxChoosPrinter.setBounds(222, 11, 66, 20);
+		panelPrint.add(comboBoxChoosPrinter);
 
 	}
 }
