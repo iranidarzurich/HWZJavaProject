@@ -35,7 +35,7 @@ public class Login {
 
 		} else {
 			JOptionPane.showMessageDialog(null,
-					"Falsche Usename oder Passwort\nBitte Nochmal probieren", "Login",
+					"Falscher Username oder Passwort\nBitte nochmals Probieren", "Login",
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
