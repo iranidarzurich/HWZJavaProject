@@ -123,9 +123,10 @@ public class Message extends JFrame {
 					JOptionPane.showMessageDialog(null,
 							"Das Feld Passwort oder Username ist leer",
 							"Leere Felder", JOptionPane.ERROR_MESSAGE);
-				}
-				login.compare();
+				} else {
+					login.compare();
 
+				}
 			}
 		});
 		btnLogin.setBounds(168, 207, 120, 23);
