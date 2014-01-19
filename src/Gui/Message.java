@@ -381,6 +381,7 @@ public class Message extends JFrame {
 				Print print = new Print();
 				print.setMsgText(textAreaDrucken.getText());
 				print.setPrintAnhang(textAnhangPrint.getText());
+				print.setPrintername(comboBoxChoosPrinter.getName());
 				if (textAreaDrucken.getText().trim().length() == 0) {
 					JOptionPane
 							.showMessageDialog(
@@ -421,7 +422,7 @@ public class Message extends JFrame {
 		panelPrint.add(textAreaDrucken);
 
 		comboBoxChoosPrinter = new JComboBox(printerName);
-		comboBoxChoosPrinter.setBounds(222, 11, 66, 20);
+		comboBoxChoosPrinter.setBounds(222, 11, 89, 20);
 		panelPrint.add(comboBoxChoosPrinter);
 
 	}
