@@ -182,20 +182,26 @@ public class Message extends JFrame {
 				mail1.setMsgText(textAreaEmail.getText());
 				mail1.setMsgSubject(textEmailBetreff.getText());
 				mail1.setMsAnhang(textAnhnagEmail.getText());
-				if (textEmailAbsender.getText().trim().length() == 0) {
-					JOptionPane.showMessageDialog(null,
-							"Das TextFeld ist leer", "leere Felder",
-							JOptionPane.ERROR_MESSAGE);
+				if (textEmailAbsender.getText().trim().length() == 0
+						|| textEmailEmpfaenger.getText().trim().length() == 0
+						|| textAreaEmail.getText().trim().length() == 0
+						|| textEmailBetreff.getText().trim().length() == 0) {
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"Ein oder mehrere Feld(er) ist(sind) leer\nBitte kontrollieren Sie es noch einmal",
+									"leere Felder", JOptionPane.ERROR_MESSAGE);
+				} else {
+
+					mail1.createLog();
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"Email wurde gesendet \n für mehr Informationen bitte den Log anschauen",
+									"Gesendete Email",
+									JOptionPane.INFORMATION_MESSAGE);
+
 				}
-
-				mail1.createLog();
-				JOptionPane
-						.showMessageDialog(
-								null,
-								"Email wurde gesendet \n für mehr Informationen bitte den Log anschauen",
-								"Gesendete Email",
-								JOptionPane.INFORMATION_MESSAGE);
-
 			}
 		});
 
