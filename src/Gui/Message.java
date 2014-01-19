@@ -187,7 +187,7 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Ein oder mehrere Feld(er) ist(sind) leer\nBitte kontrollieren Sie es noch einmal",
+									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
 				} else {
 
@@ -195,7 +195,7 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Email wurde gesendet \n für mehr Informationen bitte den Log anschauen",
+									"Email wurde gesendet\nFür mehr Informationen bitte den Log anschauen",
 									"Gesendete Email",
 									JOptionPane.INFORMATION_MESSAGE);
 
@@ -256,11 +256,23 @@ public class Message extends JFrame {
 				sms1.setMsgSender(textSmsAbsender.getText());
 				sms1.setMsgRecipient(textSmsEmpfaenger.getText());
 				sms1.setMsgText(textAreaSms.getText());
-				sms1.createLog();
-				JOptionPane
-						.showMessageDialog(null,
-								"SMS wurde gesendet für mehr Informationen bitte den Log anschauen");
+				if (textSmsAbsender.getText().trim().length() == 0
+						|| textSmsEmpfaenger.getText().trim().length() == 0) {
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
+									"leere Felder", JOptionPane.ERROR_MESSAGE);
+				} else {
 
+					sms1.createLog();
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"SMS wurde gesendet\nFür mehr Informationen bitte den Log anschauen",
+									"Sendung", JOptionPane.INFORMATION_MESSAGE);
+
+				}
 			}
 		});
 		btnSMSSenden.setBounds(151, 129, 89, 23);
@@ -319,10 +331,22 @@ public class Message extends JFrame {
 				mms1.setMsgRecipient(textMmsEmpfaenger.getText());
 				mms1.setMsgText(textAreaMms.getText());
 				mms1.setMmsAnhang(textAnhangMms.getText());
-				mms1.createLog();
-				JOptionPane
-						.showMessageDialog(null,
-								"MMS wurde gesendet für mehr Informationen bitte den Log anschauen");
+				if (textMmsAbsender.getText().trim().length() == 0
+						|| textMmsEmpfaenger.getText().trim().length() == 0) {
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
+									"leere Felder", JOptionPane.ERROR_MESSAGE);
+				} else {
+
+					mms1.createLog();
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"MMS wurde gesendet\nFür mehr Informationen bitte den Log anschauen",
+									"Sendung", JOptionPane.INFORMATION_MESSAGE);
+				}
 			}
 		});
 
@@ -353,9 +377,23 @@ public class Message extends JFrame {
 				Print print = new Print();
 				print.setMsgText(textAreaDrucken.getText());
 				print.setPrintAnhang(textAnhangPrint.getText());
-				print.createLog();
-				JOptionPane.showMessageDialog(null, "Ihr Text wird gedruckt");
+				if (textAreaDrucken.getText().trim().length() == 0) {
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"Das Textfeld ist leer\nBitte kontrollieren Sie es noch einmal",
+									"leere Felder", JOptionPane.ERROR_MESSAGE);
+				} else {
 
+					print.createLog();
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"Ihr Text wird gedruckt\nFür mehr Informationen bitte den Log anschauen",
+									"Druck Vorgang",
+									JOptionPane.INFORMATION_MESSAGE);
+
+				}
 			}
 		});
 		btnAudrucken.setBounds(113, 148, 89, 23);
