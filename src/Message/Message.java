@@ -29,17 +29,12 @@ public abstract class Message {
 
 	// create logfile
 	public void log() {
-		File log = new File("Logfiles");
-		log.mkdir();
-		File newLogfile = new File("Logfiles/Logfile.log");
-
 		try {
 			// logfile size limit 1MB
-			// int limit = 1000000;
 			int limit = 1000000;
 
 			// configure logger with handler and formatter
-			fh = new FileHandler("Logfiles/Logfile.log", limit, 1, true);
+			fh = new FileHandler("C:/Temp/Logfile.log", limit, 1, true);
 			logger.addHandler(fh);
 			SimpleFormatter formatter = new SimpleFormatter();
 			fh.setFormatter(formatter);
