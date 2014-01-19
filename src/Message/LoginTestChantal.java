@@ -18,40 +18,43 @@ public class LoginTestChantal {
 		return password;
 	}
 
-	public static void inputUser() {
+	/*
+	 * public static void inputUser() { Scanner input = new Scanner(System.in);
+	 * System.out.println("Geben Sie den Username ein: "); String
+	 * eingabeUsername = input.nextLine(); System.out.println(eingabeUsername);
+	 * System.out.println("Geben Sie das Passwort ein: "); String
+	 * eingabePassword = input.nextLine(); }
+	 */
+
+	public static String getnewUsername() {
+		String inputUsername = eingabeUsername;
+		return inputUsername;
+	}
+
+	public static void login() {
+
 		Scanner input = new Scanner(System.in);
 		System.out.println("Geben Sie den Username ein: ");
-		String eingabeUsername = input.nextLine();
-		// System.out.println("Geben Sie das Passwort ein: ");
-		// String eingabePassword = input.nextLine();
+		eingabeUsername = input.nextLine();
+		System.out.println("Geben Sie das Passwort ein: ");
+		eingabePassword = input.nextLine();
+
+		int x = 0;
+		int y = 0;
+		do {
+			if (eingabeUsername.equals(username[x])
+					&& eingabePassword.equals(password[y])) {
+				System.out.println("toll");
+				break;
+			}
+
+			else{System.out.println("Idiot");
+			break;}
+		} while (x < 10);
 	}
 
 	public static void main(String[] args) {
+		login();
 
-		inputUser();
-		for(int i=0; i<getUsername()[i].length(); i++){
-		username[i].toString();
-		}
-
-		StringBuffer result = new StringBuffer();
-		for (int i = 0; i < username.length; i++) {
-			result.append(username[i]);
-			// result.append( optional separator );
-		}
-		String mynewstring = result.toString();
-
-		if (mynewstring.equals(eingabeUsername)) {
-			System.out.println("yeah");
-		} else {
-			System.out.println("nope");
-		}
-
-		// for (int i = 0; i < username.length; i++) {
-		/*
-		 * if (eingabeUsername.equals(getUsername()[0]) &&
-		 * eingabePassword.equals(getPassword()[0])) {
-		 * System.out.println("hat geklappt"); } else {
-		 * System.out.println("hat nicht geklappt"); }
-		 */
 	}
 }
