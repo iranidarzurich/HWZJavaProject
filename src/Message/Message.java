@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public abstract class Message {
-
+	// Variable
 	private String msgText;
 	private String msgRecipient;
 	private String msgSender;
