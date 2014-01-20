@@ -185,7 +185,7 @@ public class Message extends JFrame {
 				mail1.setMsgRecipient(textEmailRecipient.getText());
 				mail1.setMsgText(textAreaEmail.getText());
 				mail1.setMsgSubject(textEmailSubject.getText());
-				mail1.setMsAnhang(textAttachmentEmail.getText());
+				mail1.setMsgAttachment(textAttachmentEmail.getText());
 				if (textEmailSender.getText().trim().length() == 0
 						|| textEmailRecipient.getText().trim().length() == 0) {
 					JOptionPane

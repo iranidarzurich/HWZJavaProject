@@ -19,7 +19,7 @@ public class Email extends Message {
 		return emailAttachment;
 	}
 
-	public void setMsAnhang(String emailAttachment) {
+	public void setMsgAttachment(String emailAttachment) {
 		this.emailAttachment = emailAttachment;
 	}
 
