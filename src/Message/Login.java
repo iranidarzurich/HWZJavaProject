@@ -25,6 +25,7 @@ public class Login {
 		this.password = password;
 	}
 
+	// Control login input
 	public void compare() {
 		Login login = new Login();
 		if (login.getUserName().equals(this.userName)
