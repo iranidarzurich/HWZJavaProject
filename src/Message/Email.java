@@ -1,7 +1,7 @@
 package Message;
 
 public class Email extends Message {
-	//Variable
+	// Variable
 	private String msgSubject;
 	private String emailAttachment;
 
