@@ -1,7 +1,6 @@
 package Message;
 
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -12,14 +11,13 @@ public abstract class Message {
 	private String msgRecipient;
 	private String msgSender;
 	protected String output;
+	private FileHandler fh;
 
-	Scanner scan = new Scanner(System.in);
 	Logger logger = Logger.getLogger("Log");
-	FileHandler fh;
 
 	public Message() {
 	}
-	
+
 	public String getMsgText() {
 		return msgText;
 	}
@@ -51,17 +49,15 @@ public abstract class Message {
 			int limit = 1000000;
 
 			// configure logger with handler and formatter
-			fh = new FileHandler("C:/Temp/Logfile.log", limit, 1, true);
+			fh = new FileHandler("%t/Logfile.log", limit, 1, true);
 			logger.addHandler(fh);
 			SimpleFormatter formatter = new SimpleFormatter();
 			fh.setFormatter(formatter);
-
 		} catch (SecurityException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	// log output
@@ -71,5 +67,4 @@ public abstract class Message {
 				+ getMsgRecipient();
 		log();
 	}
-
 }
