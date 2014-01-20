@@ -347,7 +347,7 @@ public class Message extends JFrame {
 				mms1.setMsgSender(textMmsSender.getText());
 				mms1.setMsgRecipient(textMmsRecipient.getText());
 				mms1.setMsgText(textAreaMms.getText());
-				mms1.setMmsAnhang(textAttachmentMms.getText());
+				mms1.setMmsAttachment(textAttachmentMms.getText());
 				// Validation for all the empty major fields
 				if (textMmsSender.getText().trim().length() == 0
 						|| textMmsRecipient.getText().trim().length() == 0) {

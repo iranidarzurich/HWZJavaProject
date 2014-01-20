@@ -10,7 +10,7 @@ public class MMS extends Message {
 		return mmsAttachment;
 	}
 
-	public void setMmsAnhang(String mmsAttachment) {
+	public void setMmsAttachment(String mmsAttachment) {
 		this.mmsAttachment = mmsAttachment;
 	}
 
