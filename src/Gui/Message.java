@@ -1,5 +1,5 @@
 /**
- * 
+ * copyright Mehdi, Chantal, Damian
  */
 
 package Gui;
@@ -27,13 +27,8 @@ import Message.Print;
 import Message.SMS;
 import javax.swing.JComboBox;
 
-/**
- * 
- */
 public class Message extends JFrame {
-	/**
-	 * 
-	 */
+	// Variable
 	private static final long serialVersionUID = -8008759198163764949L;
 	private JTextField textEmailSender;
 	private JTextField textEmailRecipient;
@@ -54,9 +49,7 @@ public class Message extends JFrame {
 	private JComboBox comboBoxChoosPrinter;
 	private static String[] printerName = { "HP", "Cannon" };
 
-	/**
-	 * Launch the application.
-	 */
+	// Launch the application
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -70,13 +63,9 @@ public class Message extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
-
-	// */
+	// Mainframe
 	public Message() {
-
+		// Generate Mainframe
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(600, 150, 451, 429);
 		setTitle("Multi Channel");
@@ -86,7 +75,8 @@ public class Message extends JFrame {
 		basePane.setBackground(Color.LIGHT_GRAY);
 		basePane.setBounds(0, 0, 434, 391);
 		getContentPane().add(basePane);
-
+		
+		//Login tab
 		JPanel panelLogin = new JPanel();
 		panelLogin.setBackground(Color.LIGHT_GRAY);
 		basePane.addTab("Login", null, panelLogin, null);
@@ -113,7 +103,7 @@ public class Message extends JFrame {
 		passwordLogin = new JPasswordField();
 		passwordLogin.setBounds(168, 165, 120, 20);
 		panelLogin.add(passwordLogin);
-
+		// Login tab, button
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setBounds(168, 207, 120, 23);
 		panelLogin.add(btnLogin);
@@ -123,6 +113,7 @@ public class Message extends JFrame {
 				Login login = new Login();
 				login.setUserName(textUsername.getText());
 				login.setPassword(passwordLogin.getText());
+				// Validation Login tab
 				if (textUsername.getText().trim().length() == 0
 						|| passwordLogin.getText().length() == 0) {
 					JOptionPane.showMessageDialog(null,
@@ -134,7 +125,7 @@ public class Message extends JFrame {
 				}
 			}
 		});
-
+		// Email Tab
 		JPanel panelEmail = new JPanel();
 		panelEmail.setBackground(Color.LIGHT_GRAY);
 		basePane.addTab("Email", null, panelEmail, null);
@@ -167,7 +158,7 @@ public class Message extends JFrame {
 		labelAbsender.setBounds(10, 14, 86, 14);
 		panelEmail.add(labelAbsender);
 
-		JLabel lblRecipient = new JLabel("Empfänger");
+		JLabel lblRecipient = new JLabel("Empfï¿½nger");
 		lblRecipient.setBounds(10, 45, 86, 14);
 		panelEmail.add(lblRecipient);
 
@@ -175,6 +166,7 @@ public class Message extends JFrame {
 		lblEmailBetreff.setBounds(10, 76, 86, 14);
 		panelEmail.add(lblEmailBetreff);
 
+		// Email Tab, send button
 		JButton btnSenden = new JButton("Senden");
 		btnSenden.setBounds(306, 259, 89, 23);
 		btnSenden.addActionListener(new ActionListener() {
@@ -186,20 +178,22 @@ public class Message extends JFrame {
 				mail1.setMsgText(textAreaEmail.getText());
 				mail1.setMsgSubject(textEmailSubject.getText());
 				mail1.setMsgAttachment(textAttachmentEmail.getText());
+				// Validation for text box in the Email tab
 				if (textEmailSender.getText().trim().length() == 0
 						|| textEmailRecipient.getText().trim().length() == 0) {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
+									"Absender oder Empfï¿½nger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
+				// Message after successfully send an Email
 				} else {
 
 					mail1.createLog();
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Email wurde gesendet\nFür mehr Informationen bitte den Log anschauen",
+									"Email wurde gesendet\nFï¿½r mehr Informationen bitte den Log anschauen",
 									"Gesendete Email",
 									JOptionPane.INFORMATION_MESSAGE);
 
@@ -245,7 +239,7 @@ public class Message extends JFrame {
 		lblNewLabel.setBounds(10, 14, 105, 14);
 		panelSMS.add(lblNewLabel);
 
-		JLabel lblTelNrEmpfnger = new JLabel("TelNr. Empfänger");
+		JLabel lblTelNrEmpfnger = new JLabel("TelNr. Empfï¿½nger");
 		lblTelNrEmpfnger.setBounds(10, 45, 105, 14);
 		panelSMS.add(lblTelNrEmpfnger);
 
@@ -267,7 +261,7 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
+									"Absender oder Empfï¿½nger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
 				} else {
 
@@ -275,7 +269,7 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"SMS wurde gesendet\nFür mehr Informationen bitte den Log anschauen",
+									"SMS wurde gesendet\nFï¿½r mehr Informationen bitte den Log anschauen",
 									"Sendung", JOptionPane.INFORMATION_MESSAGE);
 
 				}
@@ -320,7 +314,7 @@ public class Message extends JFrame {
 		labelTelNRAbsender.setBounds(10, 14, 105, 14);
 		panelMMS.add(labelTelNRAbsender);
 
-		JLabel labelTelNrEmpfaenger = new JLabel("TelNr. Empfänger");
+		JLabel labelTelNrEmpfaenger = new JLabel("TelNr. Empfï¿½nger");
 		labelTelNrEmpfaenger.setBounds(10, 42, 105, 14);
 		panelMMS.add(labelTelNrEmpfaenger);
 
@@ -341,7 +335,7 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
+									"Absender oder Empfï¿½nger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
 				} else {
 
@@ -349,7 +343,7 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"MMS wurde gesendet\nFür mehr Informationen bitte den Log anschauen",
+									"MMS wurde gesendet\nFï¿½r mehr Informationen bitte den Log anschauen",
 									"Sendung", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
@@ -397,7 +391,7 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Ihr Text wird gedruckt\nFür mehr Informationen bitte den Log anschauen",
+									"Ihr Text wird gedruckt\nFï¿½r mehr Informationen bitte den Log anschauen",
 									"Druck Vorgang",
 									JOptionPane.INFORMATION_MESSAGE);
 
