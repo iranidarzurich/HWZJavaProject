@@ -26,6 +26,8 @@ import Message.MMS;
 import Message.Print;
 import Message.SMS;
 import javax.swing.JComboBox;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 public class Message extends JFrame {
 	// Variable
@@ -47,6 +49,14 @@ public class Message extends JFrame {
 	private JTextField textUsername;
 	private JPasswordField passwordLogin;
 	private JComboBox comboBoxChoosPrinter;
+	private JPanel panelEmail;
+	private JPanel panelSms;
+	private JPanel panelMms;
+	private JPanel panelPrint;
+	private JPanel panelLogin;
+	private JTabbedPane basePane;
+	private String printerType;
+	
 	private static String[] printerName = { "HP", "Cannon" };
 
 	// Launch the application
@@ -71,13 +81,13 @@ public class Message extends JFrame {
 		setTitle("Multi Channel");
 		getContentPane().setLayout(null);
 
-		JTabbedPane basePane = new JTabbedPane(JTabbedPane.TOP);
+		basePane = new JTabbedPane(JTabbedPane.TOP);
 		basePane.setBackground(Color.LIGHT_GRAY);
 		basePane.setBounds(0, 0, 434, 391);
 		getContentPane().add(basePane);
 
 		// Login tab
-		JPanel panelLogin = new JPanel();
+		panelLogin = new JPanel();
 		panelLogin.setBackground(Color.LIGHT_GRAY);
 		basePane.addTab("Login", null, panelLogin, null);
 		panelLogin.setLayout(null);
@@ -122,14 +132,20 @@ public class Message extends JFrame {
 							"Leere Felder", JOptionPane.ERROR_MESSAGE);
 				} else {
 					login.compare();
-
+					
+					basePane.addTab("Email", null, panelEmail, null);
+					basePane.addTab("SMS", null, panelSms, null);
+					basePane.addTab("MMS", null, panelMms, null);
+					basePane.addTab("Print", null, panelPrint, null);
+					basePane.removeTabAt(0);
+					
 				}
 			}
 		});
 		// Email Tab
-		JPanel panelEmail = new JPanel();
+		panelEmail = new JPanel();
 		panelEmail.setBackground(Color.LIGHT_GRAY);
-		basePane.addTab("Email", null, panelEmail, null);
+//		basePane.addTab("Email", null, panelEmail, null);
 		panelEmail.setLayout(null);
 
 		// Email text box with tooltips
@@ -160,7 +176,7 @@ public class Message extends JFrame {
 		labelAbsender.setBounds(10, 14, 86, 14);
 		panelEmail.add(labelAbsender);
 
-		JLabel lblRecipient = new JLabel("Empfï¿½nger");
+		JLabel lblRecipient = new JLabel("Empfänger");
 		lblRecipient.setBounds(10, 45, 86, 14);
 		panelEmail.add(lblRecipient);
 
@@ -186,7 +202,7 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Absender oder Empfï¿½nger ist leer\nBitte kontrollieren Sie es noch einmal",
+									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
 					
 				} 
@@ -224,40 +240,40 @@ public class Message extends JFrame {
 		btnAnhang.addActionListener(newAtt1);
 
 		// SMS tab
-		JPanel panelSMS = new JPanel();
-		panelSMS.setBackground(Color.LIGHT_GRAY);
-		basePane.addTab("SMS", null, panelSMS, null);
-		panelSMS.setLayout(null);
+		panelSms = new JPanel();
+		panelSms.setBackground(Color.LIGHT_GRAY);
+//		basePane.addTab("SMS", null, panelSms, null);
+		panelSms.setLayout(null);
 
 		// SMS text box with tooltips
 		textSmsSender = new JTextField();
 		textSmsSender.setToolTipText("+41 78 888 88 88");
 		textSmsSender.setBounds(151, 11, 205, 20);
-		panelSMS.add(textSmsSender);
+		panelSms.add(textSmsSender);
 		textSmsSender.setColumns(10);
 
 		textSmsRecipient = new JTextField();
 		textSmsRecipient.setToolTipText("+41 78 888 88 88");
 		textSmsRecipient.setBounds(151, 42, 205, 20);
-		panelSMS.add(textSmsRecipient);
+		panelSms.add(textSmsRecipient);
 		textSmsRecipient.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("TelNr. Absender");
 		lblNewLabel.setBounds(10, 14, 105, 14);
-		panelSMS.add(lblNewLabel);
+		panelSms.add(lblNewLabel);
 
-		JLabel lblTelNrEmpfnger = new JLabel("TelNr. Empfï¿½nger");
-		lblTelNrEmpfnger.setBounds(10, 45, 105, 14);
-		panelSMS.add(lblTelNrEmpfnger);
+		JLabel lblTelNrRecipientSms = new JLabel("TelNr. Empfänger");
+		lblTelNrRecipientSms.setBounds(10, 45, 105, 14);
+		panelSms.add(lblTelNrRecipientSms);
 
 		JLabel lblSmsText = new JLabel("Text");
 		lblSmsText.setBounds(10, 76, 105, 14);
-		panelSMS.add(lblSmsText);
+		panelSms.add(lblSmsText);
 
 		// SMS send button
 		JButton btnSMSSenden = new JButton("Senden");
 		btnSMSSenden.setBounds(151, 129, 89, 23);
-		panelSMS.add(btnSMSSenden);
+		panelSms.add(btnSMSSenden);
 		btnSMSSenden.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				SMS sms1 = new SMS();
@@ -270,7 +286,7 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Absender oder Empfï¿½nger ist leer\nBitte kontrollieren Sie es noch einmal",
+									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
 					
 				} 
@@ -292,51 +308,51 @@ public class Message extends JFrame {
 		textAreaSms = new JTextArea();
 		textAreaSms.setToolTipText("Hier Text eingeben");
 		textAreaSms.setBounds(151, 71, 205, 47);
-		panelSMS.add(textAreaSms);
+		panelSms.add(textAreaSms);
 
 		// MMS tab with tooltips
-		JPanel panelMMS = new JPanel();
-		panelMMS.setBackground(Color.LIGHT_GRAY);
-		panelMMS.setToolTipText("+41 78 888 88 88");
-		basePane.addTab("MMS", null, panelMMS, null);
-		panelMMS.setLayout(null);
+		panelMms = new JPanel();
+		panelMms.setBackground(Color.LIGHT_GRAY);
+		panelMms.setToolTipText("+41 78 888 88 88");
+//		basePane.addTab("MMS", null, panelMms, null);
+		panelMms.setLayout(null);
 
 		// MMS Text box
 		textMmsSender = new JTextField();
 		textMmsSender.setToolTipText("+41 78 888 88 88");
 		textMmsSender.setColumns(10);
 		textMmsSender.setBounds(150, 8, 209, 20);
-		panelMMS.add(textMmsSender);
+		panelMms.add(textMmsSender);
 
 		textMmsRecipient = new JTextField();
 		textMmsRecipient.setToolTipText("+41 78 888 88 88");
 		textMmsRecipient.setHorizontalAlignment(SwingConstants.LEFT);
 		textMmsRecipient.setColumns(10);
 		textMmsRecipient.setBounds(150, 39, 209, 20);
-		panelMMS.add(textMmsRecipient);
+		panelMms.add(textMmsRecipient);
 
 		// MMS attachment
 		textAttachmentMms = new JTextField();
 		textAttachmentMms.setBounds(150, 70, 110, 20);
-		panelMMS.add(textAttachmentMms);
+		panelMms.add(textAttachmentMms);
 		textAttachmentMms.setColumns(10);
 
 		textAreaMms = new JTextArea();
 		textAreaMms.setToolTipText("Hier Text eingeben");
 		textAreaMms.setBounds(150, 101, 209, 57);
-		panelMMS.add(textAreaMms);
+		panelMms.add(textAreaMms);
 
 		JLabel labelTelNRAbsender = new JLabel("TelNr. Absender");
 		labelTelNRAbsender.setBounds(10, 14, 105, 14);
-		panelMMS.add(labelTelNRAbsender);
+		panelMms.add(labelTelNRAbsender);
 
-		JLabel labelTelNrEmpfaenger = new JLabel("TelNr. Empfï¿½nger");
-		labelTelNrEmpfaenger.setBounds(10, 42, 105, 14);
-		panelMMS.add(labelTelNrEmpfaenger);
+		JLabel labelTelNrRecipientMms = new JLabel("TelNr. Empfänger");
+		labelTelNrRecipientMms.setBounds(10, 42, 105, 14);
+		panelMms.add(labelTelNrRecipientMms);
 
 		JLabel labelMmsText = new JLabel("Text");
 		labelMmsText.setBounds(10, 106, 105, 14);
-		panelMMS.add(labelMmsText);
+		panelMms.add(labelMmsText);
 
 		// MMS send button
 		JButton button = new JButton("Senden");
@@ -354,7 +370,7 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Absender oder Empfï¿½nger ist leer\nBitte kontrollieren Sie es noch einmal",
+									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
 				} 
 				// Message after successfully send an MMS
@@ -373,21 +389,21 @@ public class Message extends JFrame {
 		// MMS attachment button
 		JLabel lblAnhang = new JLabel("Anhang");
 		lblAnhang.setBounds(10, 67, 67, 14);
-		panelMMS.add(lblAnhang);
+		panelMms.add(lblAnhang);
 		button.setBounds(150, 169, 89, 23);
-		panelMMS.add(button);
+		panelMms.add(button);
 		
 		// MMS send button
 		Attachment newAtt2 = new Attachment(textAttachmentMms);
 		JButton btnAnhangMms = new JButton("Anhang");
 		btnAnhangMms.addActionListener(newAtt2);
 		btnAnhangMms.setBounds(270, 70, 89, 23);
-		panelMMS.add(btnAnhangMms);
+		panelMms.add(btnAnhangMms);
 
 		// Print tab
-		JPanel panelPrint = new JPanel();
+		panelPrint = new JPanel();
 		panelPrint.setBackground(Color.LIGHT_GRAY);
-		basePane.addTab("Print", null, panelPrint, null);
+ 		//basePane.addTab("Print", null, panelPrint, null);
 		panelPrint.setLayout(null);
 
 		// Choose printer
@@ -405,7 +421,7 @@ public class Message extends JFrame {
 				Print print = new Print();
 				print.setMsgText(textAreaPrint.getText());
 				print.setPrintAnhang(textAttachmentPrint.getText());
-				print.setPrintername(comboBoxChoosPrinter.getName());
+				print.setPrintername(printerType); //ine 
 				if (textAreaPrint.getText().trim().length() == 0) {
 					JOptionPane
 							.showMessageDialog(
@@ -450,6 +466,22 @@ public class Message extends JFrame {
 		panelPrint.add(textAreaPrint);
 
 		comboBoxChoosPrinter = new JComboBox(printerName);
+		comboBoxChoosPrinter.addPropertyChangeListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent arg0) {
+				int tst=comboBoxChoosPrinter.getSelectedIndex();				
+				String strI = "" + tst;
+				String prop=comboBoxChoosPrinter.getSelectedItem().toString();
+				printerType = prop;
+			}
+		});
+		comboBoxChoosPrinter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int tst=comboBoxChoosPrinter.getSelectedIndex();				
+				String strI = "" + tst;
+				String prop=comboBoxChoosPrinter.getSelectedItem().toString();
+				printerType = prop;
+			}
+		});
 		comboBoxChoosPrinter.setBounds(222, 17, 89, 20);
 		panelPrint.add(comboBoxChoosPrinter);
 
