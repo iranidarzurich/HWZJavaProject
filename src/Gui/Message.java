@@ -75,13 +75,14 @@ public class Message extends JFrame {
 		basePane.setBackground(Color.LIGHT_GRAY);
 		basePane.setBounds(0, 0, 434, 391);
 		getContentPane().add(basePane);
-		
-		//Login tab
+
+		// Login tab
 		JPanel panelLogin = new JPanel();
 		panelLogin.setBackground(Color.LIGHT_GRAY);
 		basePane.addTab("Login", null, panelLogin, null);
 		panelLogin.setLayout(null);
 
+		// Tooltip for login
 		JLabel lblInputUsernameAndPassword = new JLabel(
 				"Ihr Username und Passwort eingeben");
 		lblInputUsernameAndPassword.setBounds(99, 104, 275, 14);
@@ -131,6 +132,7 @@ public class Message extends JFrame {
 		basePane.addTab("Email", null, panelEmail, null);
 		panelEmail.setLayout(null);
 
+		// Email text box with tooltips
 		textEmailSender = new JTextField();
 		textEmailSender.setBounds(126, 11, 199, 20);
 		textEmailSender.setToolTipText("xxx@xxx.xx");
@@ -178,7 +180,7 @@ public class Message extends JFrame {
 				mail1.setMsgText(textAreaEmail.getText());
 				mail1.setMsgSubject(textEmailSubject.getText());
 				mail1.setMsgAttachment(textAttachmentEmail.getText());
-				// Validation for text box in the Email tab
+				// Validation for all the empty major fields
 				if (textEmailSender.getText().trim().length() == 0
 						|| textEmailRecipient.getText().trim().length() == 0) {
 					JOptionPane
@@ -186,8 +188,10 @@ public class Message extends JFrame {
 									null,
 									"Absender oder Empf�nger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
+					
+				} 
 				// Message after successfully send an Email
-				} else {
+				else {
 
 					mail1.createLog();
 					JOptionPane
@@ -206,11 +210,12 @@ public class Message extends JFrame {
 		panelEmail.add(lblEmailText);
 		panelEmail.add(btnSenden);
 
+		// Email attachment
 		textAttachmentEmail = new JTextField();
 		textAttachmentEmail.setBounds(126, 104, 99, 20);
 		panelEmail.add(textAttachmentEmail);
 		textAttachmentEmail.setColumns(10);
-
+		// Email Attachment button
 		JButton btnAnhang = new JButton("Anhang");
 		btnAnhang.setBounds(235, 104, 89, 23);
 		panelEmail.add(btnAnhang);
@@ -218,11 +223,13 @@ public class Message extends JFrame {
 		Attachment newAtt1 = new Attachment(textAttachmentEmail);
 		btnAnhang.addActionListener(newAtt1);
 
+		// SMS tab
 		JPanel panelSMS = new JPanel();
 		panelSMS.setBackground(Color.LIGHT_GRAY);
 		basePane.addTab("SMS", null, panelSMS, null);
 		panelSMS.setLayout(null);
 
+		// SMS text box with tooltips
 		textSmsSender = new JTextField();
 		textSmsSender.setToolTipText("+41 78 888 88 88");
 		textSmsSender.setBounds(151, 11, 205, 20);
@@ -247,6 +254,7 @@ public class Message extends JFrame {
 		lblSmsText.setBounds(10, 76, 105, 14);
 		panelSMS.add(lblSmsText);
 
+		// SMS send button
 		JButton btnSMSSenden = new JButton("Senden");
 		btnSMSSenden.setBounds(151, 129, 89, 23);
 		panelSMS.add(btnSMSSenden);
@@ -256,6 +264,7 @@ public class Message extends JFrame {
 				sms1.setMsgSender(textSmsSender.getText());
 				sms1.setMsgRecipient(textSmsRecipient.getText());
 				sms1.setMsgText(textAreaSms.getText());
+				// Validation for all the empty major fields
 				if (textSmsSender.getText().trim().length() == 0
 						|| textSmsRecipient.getText().trim().length() == 0) {
 					JOptionPane
@@ -263,7 +272,10 @@ public class Message extends JFrame {
 									null,
 									"Absender oder Empf�nger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
-				} else {
+					
+				} 
+				// Message after successfully send an SMS
+				else {
 
 					sms1.createLog();
 					JOptionPane
@@ -276,17 +288,20 @@ public class Message extends JFrame {
 			}
 		});
 
+		// SMS Text box
 		textAreaSms = new JTextArea();
 		textAreaSms.setToolTipText("Hier Text eingeben");
 		textAreaSms.setBounds(151, 71, 205, 47);
 		panelSMS.add(textAreaSms);
 
+		// MMS tab with tooltips
 		JPanel panelMMS = new JPanel();
 		panelMMS.setBackground(Color.LIGHT_GRAY);
 		panelMMS.setToolTipText("+41 78 888 88 88");
 		basePane.addTab("MMS", null, panelMMS, null);
 		panelMMS.setLayout(null);
 
+		// MMS Text box
 		textMmsSender = new JTextField();
 		textMmsSender.setToolTipText("+41 78 888 88 88");
 		textMmsSender.setColumns(10);
@@ -300,6 +315,7 @@ public class Message extends JFrame {
 		textMmsRecipient.setBounds(150, 39, 209, 20);
 		panelMMS.add(textMmsRecipient);
 
+		// MMS attachment
 		textAttachmentMms = new JTextField();
 		textAttachmentMms.setBounds(150, 70, 110, 20);
 		panelMMS.add(textAttachmentMms);
@@ -322,14 +338,17 @@ public class Message extends JFrame {
 		labelMmsText.setBounds(10, 106, 105, 14);
 		panelMMS.add(labelMmsText);
 
+		// MMS send button
 		JButton button = new JButton("Senden");
 		button.addActionListener(new ActionListener() {
+			// Validation for the empty important fields
 			public void actionPerformed(ActionEvent e) {
 				MMS mms1 = new MMS();
 				mms1.setMsgSender(textMmsSender.getText());
 				mms1.setMsgRecipient(textMmsRecipient.getText());
 				mms1.setMsgText(textAreaMms.getText());
 				mms1.setMmsAnhang(textAttachmentMms.getText());
+				// Validation for all the empty major fields
 				if (textMmsSender.getText().trim().length() == 0
 						|| textMmsRecipient.getText().trim().length() == 0) {
 					JOptionPane
@@ -337,7 +356,9 @@ public class Message extends JFrame {
 									null,
 									"Absender oder Empf�nger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
-				} else {
+				} 
+				// Message after successfully send an MMS
+				else {
 
 					mms1.createLog();
 					JOptionPane
@@ -349,31 +370,37 @@ public class Message extends JFrame {
 			}
 		});
 
+		// MMS attachment button
 		JLabel lblAnhang = new JLabel("Anhang");
 		lblAnhang.setBounds(10, 67, 67, 14);
 		panelMMS.add(lblAnhang);
 		button.setBounds(150, 169, 89, 23);
 		panelMMS.add(button);
-
+		
+		// MMS send button
 		Attachment newAtt2 = new Attachment(textAttachmentMms);
 		JButton btnAnhangMms = new JButton("Anhang");
 		btnAnhangMms.addActionListener(newAtt2);
 		btnAnhangMms.setBounds(270, 70, 89, 23);
 		panelMMS.add(btnAnhangMms);
 
+		// Print tab
 		JPanel panelPrint = new JPanel();
 		panelPrint.setBackground(Color.LIGHT_GRAY);
 		basePane.addTab("Print", null, panelPrint, null);
 		panelPrint.setLayout(null);
 
+		// Choose printer
 		JLabel lblTextDrucker = new JLabel("Text");
 		lblTextDrucker.setBounds(27, 80, 46, 14);
 		panelPrint.add(lblTextDrucker);
 
+		// Print button
 		JButton btnPrint = new JButton("Drucken");
 		btnPrint.setBounds(113, 173, 89, 23);
 		panelPrint.add(btnPrint);
 		btnPrint.addActionListener(new ActionListener() {
+			// Validation for all the empty major fields
 			public void actionPerformed(ActionEvent e) {
 				Print print = new Print();
 				print.setMsgText(textAreaPrint.getText());
@@ -385,7 +412,9 @@ public class Message extends JFrame {
 									null,
 									"Das Textfeld ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
-				} else {
+				} 
+				// Message after successfully print a file
+				else {
 
 					print.createLog();
 					JOptionPane
@@ -399,11 +428,13 @@ public class Message extends JFrame {
 			}
 		});
 
+		// Print attachment
 		textAttachmentPrint = new JTextField();
 		textAttachmentPrint.setBounds(113, 49, 99, 20);
 		panelPrint.add(textAttachmentPrint);
 		textAttachmentPrint.setColumns(10);
 
+		// Attachment button
 		JButton btnPrintAnhang = new JButton("Anhang");
 		Attachment newAtt3 = new Attachment(textAttachmentPrint);
 		btnPrintAnhang.addActionListener(newAtt3);
@@ -412,6 +443,7 @@ public class Message extends JFrame {
 		btnPrintAnhang.setBounds(222, 48, 89, 23);
 		panelPrint.add(btnPrintAnhang);
 
+		// Text box with Tooltip
 		textAreaPrint = new JTextArea();
 		textAreaPrint.setToolTipText("Hier Text eingeben");
 		textAreaPrint.setBounds(114, 80, 197, 82);
