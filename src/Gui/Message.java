@@ -213,9 +213,14 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Email wurde gesendet\nFï¿½r mehr Informationen bitte den Log anschauen",
+									"Email wurde gesendet\nFür mehr Informationen bitte den Log anschauen",
 									"Gesendete Email",
 									JOptionPane.INFORMATION_MESSAGE);
+						textEmailRecipient.setText("");
+						textEmailSender.setText("");
+						textAreaEmail.setText("");
+						textEmailSubject.setText("");
+						textAttachmentEmail.setText("");
 
 				}
 			}
@@ -297,8 +302,11 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"SMS wurde gesendet\nFï¿½r mehr Informationen bitte den Log anschauen",
+									"SMS wurde gesendet\nFür mehr Informationen bitte den Log anschauen",
 									"Sendung", JOptionPane.INFORMATION_MESSAGE);
+					textSmsRecipient.setText("");
+					textSmsSender.setText("");
+					textAreaSms.setText("");
 
 				}
 			}
@@ -380,8 +388,13 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"MMS wurde gesendet\nFï¿½r mehr Informationen bitte den Log anschauen",
+									"MMS wurde gesendet\nFür mehr Informationen bitte den Log anschauen",
 									"Sendung", JOptionPane.INFORMATION_MESSAGE);
+					textMmsRecipient.setText("");
+					textMmsSender.setText("");
+					textAreaMms.setText("");
+					textAttachmentMms.setText("");
+					
 				}
 			}
 		});
@@ -421,7 +434,7 @@ public class Message extends JFrame {
 				Print print = new Print();
 				print.setMsgText(textAreaPrint.getText());
 				print.setPrintAnhang(textAttachmentPrint.getText());
-				print.setPrintername(printerType); //ine 
+				print.setPrintername(printerType);  
 				if (textAreaPrint.getText().trim().length() == 0) {
 					JOptionPane
 							.showMessageDialog(
@@ -436,9 +449,11 @@ public class Message extends JFrame {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Ihr Text wird gedruckt\nFï¿½r mehr Informationen bitte den Log anschauen",
+									"Ihr Text wird gedruckt\nFür mehr Informationen bitte den Log anschauen",
 									"Druck Vorgang",
 									JOptionPane.INFORMATION_MESSAGE);
+					textAreaPrint.setText("");
+					textAttachmentPrint.setText("");
 
 				}
 			}
