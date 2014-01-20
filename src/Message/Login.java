@@ -2,7 +2,7 @@ package Message;
 
 import javax.swing.JOptionPane;
 
-public class Login {
+public class Login extends Gui.Message {
 	private String userName = "mehdi";
 	private String password = "123";
 
@@ -26,18 +26,21 @@ public class Login {
 	}
 
 	// Control login input
-	public void compare() {
+	public boolean compare() {
+		
 		Login login = new Login();
 		if (login.getUserName().equals(this.userName)
 				&& login.getPassword().equals(this.password)) {
 
 			JOptionPane.showMessageDialog(null, "Sie sind eingeloggt", "Login",
 					JOptionPane.INFORMATION_MESSAGE);
-
+			return true;
+			
 		} else {
 			JOptionPane.showMessageDialog(null,
 					"Falscher Username oder Passwort\nBitte nochmals Probieren", "Login",
 					JOptionPane.ERROR_MESSAGE);
+			return false;
 		}
 	}
 }

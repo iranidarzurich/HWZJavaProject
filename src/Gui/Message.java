@@ -49,14 +49,14 @@ public class Message extends JFrame {
 	private JTextField textUsername;
 	private JPasswordField passwordLogin;
 	private JComboBox comboBoxChoosPrinter;
-	private JPanel panelEmail;
-	private JPanel panelSms;
-	private JPanel panelMms;
-	private JPanel panelPrint;
-	private JPanel panelLogin;
-	private JTabbedPane basePane;
+	public JPanel panelEmail;
+	public JPanel panelSms;
+	public JPanel panelMms;
+	public JPanel panelPrint;
+	public JPanel panelLogin;
+	public JTabbedPane basePane;
 	private String printerType;
-	
+
 	private static String[] printerName = { "HP", "Cannon" };
 
 	// Launch the application
@@ -131,21 +131,23 @@ public class Message extends JFrame {
 							"Das Feld Passwort oder Username ist leer",
 							"Leere Felder", JOptionPane.ERROR_MESSAGE);
 				} else {
-					login.compare();
-					
-					basePane.addTab("Email", null, panelEmail, null);
-					basePane.addTab("SMS", null, panelSms, null);
-					basePane.addTab("MMS", null, panelMms, null);
-					basePane.addTab("Print", null, panelPrint, null);
-					basePane.removeTabAt(0);
-					
+					if (login.compare()) {
+						basePane.addTab("Email", null, panelEmail, null);
+						basePane.addTab("SMS", null, panelSms, null);
+						basePane.addTab("MMS", null, panelMms, null);
+						basePane.addTab("Print", null, panelPrint, null);
+						basePane.removeTabAt(0);
+					}
+
 				}
+
 			}
+
 		});
 		// Email Tab
 		panelEmail = new JPanel();
 		panelEmail.setBackground(Color.LIGHT_GRAY);
-//		basePane.addTab("Email", null, panelEmail, null);
+		// basePane.addTab("Email", null, panelEmail, null);
 		panelEmail.setLayout(null);
 
 		// Email text box with tooltips
@@ -204,8 +206,8 @@ public class Message extends JFrame {
 									null,
 									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
-					
-				} 
+
+				}
 				// Message after successfully send an Email
 				else {
 
@@ -216,11 +218,11 @@ public class Message extends JFrame {
 									"Email wurde gesendet\nFür mehr Informationen bitte den Log anschauen",
 									"Gesendete Email",
 									JOptionPane.INFORMATION_MESSAGE);
-						textEmailRecipient.setText("");
-						textEmailSender.setText("");
-						textAreaEmail.setText("");
-						textEmailSubject.setText("");
-						textAttachmentEmail.setText("");
+					textEmailRecipient.setText("");
+					textEmailSender.setText("");
+					textAreaEmail.setText("");
+					textEmailSubject.setText("");
+					textAttachmentEmail.setText("");
 
 				}
 			}
@@ -247,7 +249,7 @@ public class Message extends JFrame {
 		// SMS tab
 		panelSms = new JPanel();
 		panelSms.setBackground(Color.LIGHT_GRAY);
-//		basePane.addTab("SMS", null, panelSms, null);
+		// basePane.addTab("SMS", null, panelSms, null);
 		panelSms.setLayout(null);
 
 		// SMS text box with tooltips
@@ -293,8 +295,8 @@ public class Message extends JFrame {
 									null,
 									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
-					
-				} 
+
+				}
 				// Message after successfully send an SMS
 				else {
 
@@ -322,7 +324,7 @@ public class Message extends JFrame {
 		panelMms = new JPanel();
 		panelMms.setBackground(Color.LIGHT_GRAY);
 		panelMms.setToolTipText("+41 78 888 88 88");
-//		basePane.addTab("MMS", null, panelMms, null);
+		// basePane.addTab("MMS", null, panelMms, null);
 		panelMms.setLayout(null);
 
 		// MMS Text box
@@ -380,7 +382,7 @@ public class Message extends JFrame {
 									null,
 									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
-				} 
+				}
 				// Message after successfully send an MMS
 				else {
 
@@ -394,7 +396,7 @@ public class Message extends JFrame {
 					textMmsSender.setText("");
 					textAreaMms.setText("");
 					textAttachmentMms.setText("");
-					
+
 				}
 			}
 		});
@@ -405,7 +407,7 @@ public class Message extends JFrame {
 		panelMms.add(lblAnhang);
 		button.setBounds(150, 169, 89, 23);
 		panelMms.add(button);
-		
+
 		// MMS send button
 		Attachment newAtt2 = new Attachment(textAttachmentMms);
 		JButton btnAnhangMms = new JButton("Anhang");
@@ -416,7 +418,7 @@ public class Message extends JFrame {
 		// Print tab
 		panelPrint = new JPanel();
 		panelPrint.setBackground(Color.LIGHT_GRAY);
- 		//basePane.addTab("Print", null, panelPrint, null);
+		// basePane.addTab("Print", null, panelPrint, null);
 		panelPrint.setLayout(null);
 
 		// Choose printer
@@ -434,14 +436,14 @@ public class Message extends JFrame {
 				Print print = new Print();
 				print.setMsgText(textAreaPrint.getText());
 				print.setPrintAnhang(textAttachmentPrint.getText());
-				print.setPrintername(printerType);  
+				print.setPrintername(printerType);
 				if (textAreaPrint.getText().trim().length() == 0) {
 					JOptionPane
 							.showMessageDialog(
 									null,
 									"Das Textfeld ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
-				} 
+				}
 				// Message after successfully print a file
 				else {
 
@@ -481,19 +483,21 @@ public class Message extends JFrame {
 		panelPrint.add(textAreaPrint);
 
 		comboBoxChoosPrinter = new JComboBox(printerName);
-		comboBoxChoosPrinter.addPropertyChangeListener(new PropertyChangeListener() {
-			public void propertyChange(PropertyChangeEvent arg0) {
-				int tst=comboBoxChoosPrinter.getSelectedIndex();				
-				String strI = "" + tst;
-				String prop=comboBoxChoosPrinter.getSelectedItem().toString();
-				printerType = prop;
-			}
-		});
+		comboBoxChoosPrinter
+				.addPropertyChangeListener(new PropertyChangeListener() {
+					public void propertyChange(PropertyChangeEvent arg0) {
+						int tst = comboBoxChoosPrinter.getSelectedIndex();
+						String strI = "" + tst;
+						String prop = comboBoxChoosPrinter.getSelectedItem()
+								.toString();
+						printerType = prop;
+					}
+				});
 		comboBoxChoosPrinter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int tst=comboBoxChoosPrinter.getSelectedIndex();				
+				int tst = comboBoxChoosPrinter.getSelectedIndex();
 				String strI = "" + tst;
-				String prop=comboBoxChoosPrinter.getSelectedItem().toString();
+				String prop = comboBoxChoosPrinter.getSelectedItem().toString();
 				printerType = prop;
 			}
 		});
