@@ -1,4 +1,4 @@
-package MultiChanelBasicCalsses;
+package business_classes;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;

@@ -2,14 +2,17 @@
  * copyright Mehdi, Chantal, Damian
  */
 
-package Gui;
+package gui;
 
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -20,17 +23,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import MultiChanelBasicCalsses.Attachment;
-import MultiChanelBasicCalsses.Email;
-import MultiChanelBasicCalsses.Login;
-import MultiChanelBasicCalsses.MMS;
-import MultiChanelBasicCalsses.Print;
-import MultiChanelBasicCalsses.SMS;
-
-import javax.swing.JComboBox;
-
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
+import login.Login;
+import business_classes.Attachment;
+import business_classes.Email;
+import business_classes.MMS;
+import business_classes.Print;
+import business_classes.SMS;
 
 public class MultiChannel extends JFrame {
 	// Variable
@@ -147,7 +145,7 @@ public class MultiChannel extends JFrame {
 		// Email Tab
 		panelEmail = new JPanel();
 		panelEmail.setBackground(Color.LIGHT_GRAY);
-//		basePane.addTab("Email", null, panelEmail, null);
+		// basePane.addTab("Email", null, panelEmail, null);
 		panelEmail.setLayout(null);
 
 		// Email text box with tooltips

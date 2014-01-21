@@ -1,4 +1,4 @@
-package MultiChanelBasicCalsses;
+package business_classes;
 
 public class MMS extends Message {
 	private String mmsAttachment;

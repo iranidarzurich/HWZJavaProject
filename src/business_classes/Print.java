@@ -1,4 +1,4 @@
-package MultiChanelBasicCalsses;
+package business_classes;
 
 public class Print extends Message {
 	private String printAttachment;

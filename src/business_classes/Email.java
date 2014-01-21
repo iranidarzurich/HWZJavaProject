@@ -1,4 +1,4 @@
-package MultiChanelBasicCalsses;
+package business_classes;
 
 public class Email extends Message {
 	// Variable
