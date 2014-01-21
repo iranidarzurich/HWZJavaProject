@@ -1,4 +1,4 @@
-package Message;
+package MultiChanelBasicCalsses;
 
 public class SMS extends Message {
 

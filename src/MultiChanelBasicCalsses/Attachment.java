@@ -1,4 +1,4 @@
-package Message;
+package MultiChanelBasicCalsses;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,9 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 public class Attachment extends JFrame implements ActionListener {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 2217231798591128412L;
 	private JFileChooser chooser;
 	private String choosertitle;

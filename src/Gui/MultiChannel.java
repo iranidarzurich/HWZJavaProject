@@ -20,12 +20,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import Message.Attachment;
-import Message.Email;
-import Message.Login;
-import Message.MMS;
-import Message.Print;
-import Message.SMS;
+import MultiChanelBasicCalsses.Attachment;
+import MultiChanelBasicCalsses.Email;
+import MultiChanelBasicCalsses.Login;
+import MultiChanelBasicCalsses.MMS;
+import MultiChanelBasicCalsses.Print;
+import MultiChanelBasicCalsses.SMS;
 
 import javax.swing.JComboBox;
 

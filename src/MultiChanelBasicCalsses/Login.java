@@ -1,4 +1,4 @@
-package Message;
+package MultiChanelBasicCalsses;
 
 import javax.swing.JOptionPane;
 
