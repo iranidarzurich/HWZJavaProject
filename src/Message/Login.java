@@ -5,9 +5,7 @@ import javax.swing.JOptionPane;
 public class Login extends Message {
 	private String userName = "mehdi";
 	private String password = "123";
-	// private boolean checkStatus = false;
-	private String outputLog = null;
-
+		
 	// String[] userName2 = {"mehdi", "chantal"};
 	// String[] password2 = {"123", "345"};
 
@@ -29,7 +27,6 @@ public class Login extends Message {
 
 	// Control login input
 	public boolean compare() {
-
 		Login login = new Login();
 		if (login.getUserName().equals(this.userName)
 				&& login.getPassword().equals(this.password)) {
@@ -44,20 +41,5 @@ public class Login extends Message {
 							"Login", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
-
 	}
-
-	@Override
-	public void createLog() {
-		super.createLog();
-		if (compare() == true) {
-			outputLog = "\r\nLogin erfolgreich " + "\r\nHallo " + userName
-					+ "\r\n";
-		} else {
-			outputLog = "\r\nLogin von " + userName
-					+ " nicht erfolgreich! Bitte nochmals versuchen." + "\r\n";
-		}
-		logger.info(outputLog);
-	}
-
 }
