@@ -48,7 +48,7 @@ public class Message extends JFrame {
 	private JTextField textAttachmentPrint;
 	private JTextField textUsername;
 	private JPasswordField passwordLogin;
-	private JComboBox comboBoxChoosPrinter;
+	private JComboBox<String> comboBoxChoosPrinter;
 	private JPanel panelEmail;
 	private JPanel panelSms;
 	private JPanel panelMms;
@@ -483,9 +483,7 @@ public class Message extends JFrame {
 		comboBoxChoosPrinter = new JComboBox(printerName);
 		comboBoxChoosPrinter
 				.addPropertyChangeListener(new PropertyChangeListener() {
-					public void propertyChange(PropertyChangeEvent arg0) {
-						int tst = comboBoxChoosPrinter.getSelectedIndex();
-						String strI = "" + tst;
+					public void propertyChange(PropertyChangeEvent arg0) {					
 						String prop = comboBoxChoosPrinter.getSelectedItem()
 								.toString();
 						printerType = prop;
@@ -493,8 +491,6 @@ public class Message extends JFrame {
 				});
 		comboBoxChoosPrinter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int tst = comboBoxChoosPrinter.getSelectedIndex();
-				String strI = "" + tst;
 				String prop = comboBoxChoosPrinter.getSelectedItem().toString();
 				printerType = prop;
 			}
