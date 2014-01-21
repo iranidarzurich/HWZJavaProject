@@ -144,7 +144,7 @@ public class Message extends JFrame {
 		// Email Tab
 		panelEmail = new JPanel();
 		panelEmail.setBackground(Color.LIGHT_GRAY);
-		 basePane.addTab("Email", null, panelEmail, null);
+//		basePane.addTab("Email", null, panelEmail, null);
 		panelEmail.setLayout(null);
 
 		// Email text box with tooltips
