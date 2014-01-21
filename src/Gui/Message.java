@@ -49,15 +49,14 @@ public class Message extends JFrame {
 	private JTextField textUsername;
 	private JPasswordField passwordLogin;
 	private JComboBox comboBoxChoosPrinter;
-	public JPanel panelEmail;
-	public JPanel panelSms;
-	public JPanel panelMms;
-	public JPanel panelPrint;
-	public JPanel panelLogin;
-	public JTabbedPane basePane;
+	private JPanel panelEmail;
+	private JPanel panelSms;
+	private JPanel panelMms;
+	private JPanel panelPrint;
+	private JPanel panelLogin;
+	private JTabbedPane basePane;
 	private String printerType;
-
-	private static String[] printerName = { "HP", "Cannon" };
+	private static String[] printerName = { "HP", "Canon" };
 
 	// Launch the application
 	public static void main(String[] args) {
@@ -435,7 +434,7 @@ public class Message extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Print print = new Print();
 				print.setMsgText(textAreaPrint.getText());
-				print.setPrintAnhang(textAttachmentPrint.getText());
+				print.setPrintAttachmnet(textAttachmentPrint.getText());
 				print.setPrintername(printerType);
 				if (textAreaPrint.getText().trim().length() == 0) {
 					JOptionPane

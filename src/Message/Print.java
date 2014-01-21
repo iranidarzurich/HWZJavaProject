@@ -8,7 +8,7 @@ public class Print extends Message {
 		return printAttachment;
 	}
 
-	public void setPrintAnhang(String printAttachment) {
+	public void setPrintAttachmnet(String printAttachment) {
 		this.printAttachment = printAttachment;
 	}
 
