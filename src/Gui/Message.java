@@ -123,7 +123,6 @@ public class Message extends JFrame {
 				Login login = new Login();
 				login.setUserName(textUsername.getText());
 				login.setPassword(passwordLogin.getText());
-				login.createLog();
 				// Validation Login tab
 				if (textUsername.getText().trim().length() == 0
 						|| passwordLogin.getText().length() == 0) {
@@ -145,7 +144,7 @@ public class Message extends JFrame {
 		// Email Tab
 		panelEmail = new JPanel();
 		panelEmail.setBackground(Color.LIGHT_GRAY);
-		// basePane.addTab("Email", null, panelEmail, null);
+		 basePane.addTab("Email", null, panelEmail, null);
 		panelEmail.setLayout(null);
 
 		// Email text box with tooltips
@@ -170,7 +169,7 @@ public class Message extends JFrame {
 
 		textAreaEmail = new JTextArea();
 		textAreaEmail.setToolTipText("Hier Text eingeben");
-		textAreaEmail.setBounds(126, 138, 199, 77);
+		textAreaEmail.setBounds(126, 138, 199, 117);
 		panelEmail.add(textAreaEmail);
 
 		JLabel labelAbsender = new JLabel("Absender");
@@ -187,7 +186,7 @@ public class Message extends JFrame {
 
 		// Email Tab, send button
 		JButton btnSenden = new JButton("Senden");
-		btnSenden.setBounds(306, 259, 89, 23);
+		btnSenden.setBounds(126, 266, 89, 23);
 		btnSenden.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -344,7 +343,7 @@ public class Message extends JFrame {
 		// Print tab
 		panelPrint = new JPanel();
 		panelPrint.setBackground(Color.LIGHT_GRAY);
-//		basePane.addTab("Print", null, panelPrint, null);
+		// basePane.addTab("Print", null, panelPrint, null);
 		panelPrint.setLayout(null);
 
 		// Choose printer
@@ -480,7 +479,6 @@ public class Message extends JFrame {
 									null,
 									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
-
 				}
 				// Message after successfully send an SMS
 				else {
