@@ -150,6 +150,7 @@ public class Message extends JFrame {
 
 		// Email text box with tooltips
 		textEmailSender = new JTextField();
+		textEmailSender.setText("multichannel@HWZ.ch");
 		textEmailSender.setBounds(126, 11, 199, 20);
 		textEmailSender.setToolTipText("xxx@xxx.xx");
 		panelEmail.add(textEmailSender);
@@ -252,6 +253,7 @@ public class Message extends JFrame {
 
 		// SMS text box with tooltips
 		textSmsSender = new JTextField();
+		textSmsSender.setText("+41 79 876 54 32");
 		textSmsSender.setToolTipText("+41 78 888 88 88");
 		textSmsSender.setBounds(151, 11, 205, 20);
 		panelSms.add(textSmsSender);
@@ -327,6 +329,7 @@ public class Message extends JFrame {
 
 		// MMS Text box
 		textMmsSender = new JTextField();
+		textMmsSender.setText("+41 79 876 54 32");
 		textMmsSender.setToolTipText("+41 78 888 88 88");
 		textMmsSender.setColumns(10);
 		textMmsSender.setBounds(150, 8, 209, 20);
