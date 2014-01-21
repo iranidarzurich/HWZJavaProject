@@ -3,8 +3,8 @@ package login;
 import javax.swing.JOptionPane;
 
 public class Login {
-	private String userName = "mehdi";
-	private String password ="123";
+	private String userName = "multichannel";
+	private String password ="bwia12";
 //	private String s;
 //	private String p;
 
