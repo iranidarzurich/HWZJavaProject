@@ -1,17 +1,12 @@
 package login;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
-
 import javax.swing.JOptionPane;
 
 public class Login {
-	private String userName ;
-	private String password ;
-	private String s;
-	private String p;
+	private String userName = "mehdi";
+	private String password ="123";
+//	private String s;
+//	private String p;
 
 	public String getUserName() {
 		return userName;
@@ -34,22 +29,23 @@ public class Login {
 		Login login = new Login();
 		
 	    
-		Properties properties = new Properties();
-		try {
-			properties.load(new FileInputStream("adminlist.ini"));
-			this.s = properties.getProperty("admin");
-			 this.p = properties.getProperty("password");
-			
-//			 List<String> list = new List<String>;
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		if (login.getUserName().equals(this.s)
-				&& login.getPassword().equals(this.p)) {
+//		Properties properties = new Properties();
+//		try {
+//			properties.load(new FileInputStream("adminlist.ini"));
+//			this.userName = properties.getProperty("admin");
+//			 this.password = properties.getProperty("password");
+//			 System.out.println(userName+password);
+//			
+////			 List<String> list = new List<String>;
+//		} catch (FileNotFoundException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+		if (login.getUserName().equals(this.userName)
+				&& login.getPassword().equals(this.password)) {
 			JOptionPane.showMessageDialog(null, "Sie sind eingeloggt", "Login",
 					JOptionPane.INFORMATION_MESSAGE);
 			return true;
