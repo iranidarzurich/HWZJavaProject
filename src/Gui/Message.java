@@ -123,6 +123,7 @@ public class Message extends JFrame {
 				Login login = new Login();
 				login.setUserName(textUsername.getText());
 				login.setPassword(passwordLogin.getText());
+				login.createLog();
 				// Validation Login tab
 				if (textUsername.getText().trim().length() == 0
 						|| passwordLogin.getText().length() == 0) {
@@ -137,9 +138,7 @@ public class Message extends JFrame {
 						basePane.addTab("Print", null, panelPrint, null);
 						basePane.removeTabAt(0);
 					}
-
 				}
-
 			}
 
 		});
