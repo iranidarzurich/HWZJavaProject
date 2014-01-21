@@ -20,12 +20,15 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Message.Attachment;
 import Message.Email;
 import Message.Login;
 import Message.MMS;
 import Message.Print;
 import Message.SMS;
+
 import javax.swing.JComboBox;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 
