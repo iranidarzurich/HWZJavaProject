@@ -32,7 +32,7 @@ import javax.swing.JComboBox;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 
-public class Message extends JFrame {
+public class MultiChannel extends JFrame {
 	// Variable
 	private static final long serialVersionUID = -8008759198163764949L;
 	private JTextField textEmailSender;
@@ -66,7 +66,7 @@ public class Message extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Message frame = new Message();
+					MultiChannel frame = new MultiChannel();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -76,7 +76,7 @@ public class Message extends JFrame {
 	}
 
 	// Mainframe
-	public Message() {
+	public MultiChannel() {
 		// Generate Mainframe
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(600, 150, 451, 429);

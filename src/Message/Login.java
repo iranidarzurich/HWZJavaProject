@@ -2,10 +2,10 @@ package Message;
 
 import javax.swing.JOptionPane;
 
-public class Login extends Message {
+public class Login {
 	private String userName = "mehdi";
 	private String password = "123";
-		
+
 	// String[] userName2 = {"mehdi", "chantal"};
 	// String[] password2 = {"123", "345"};
 
