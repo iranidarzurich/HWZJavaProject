@@ -218,7 +218,6 @@ public class MultiChannel extends JFrame {
 									"Gesendete Email",
 									JOptionPane.INFORMATION_MESSAGE);
 					textEmailRecipient.setText("");
-					textEmailSender.setText("");
 					textAreaEmail.setText("");
 					textEmailSubject.setText("");
 					textAttachmentEmail.setText("");
@@ -319,7 +318,6 @@ public class MultiChannel extends JFrame {
 									"MMS wurde gesendet\nFür mehr Informationen bitte den Log anschauen",
 									"Sendung", JOptionPane.INFORMATION_MESSAGE);
 					textMmsRecipient.setText("");
-					textMmsSender.setText("");
 					textAreaMms.setText("");
 					textAttachmentMms.setText("");
 
@@ -491,7 +489,6 @@ public class MultiChannel extends JFrame {
 									"SMS wurde gesendet\nFür mehr Informationen bitte den Log anschauen",
 									"Sendung", JOptionPane.INFORMATION_MESSAGE);
 					textSmsRecipient.setText("");
-					textSmsSender.setText("");
 					textAreaSms.setText("");
 
 				}

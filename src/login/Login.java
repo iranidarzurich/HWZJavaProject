@@ -4,9 +4,7 @@ import javax.swing.JOptionPane;
 
 public class Login {
 	private String userName = "multichannel";
-	private String password ="bwia12";
-//	private String s;
-//	private String p;
+	private String password = "bwia12";
 
 	public String getUserName() {
 		return userName;
@@ -27,23 +25,6 @@ public class Login {
 	// Control login input
 	public boolean compare() {
 		Login login = new Login();
-		
-	    
-//		Properties properties = new Properties();
-//		try {
-//			properties.load(new FileInputStream("adminlist.ini"));
-//			this.userName = properties.getProperty("admin");
-//			 this.password = properties.getProperty("password");
-//			 System.out.println(userName+password);
-//			
-////			 List<String> list = new List<String>;
-//		} catch (FileNotFoundException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		} catch (IOException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
 		if (login.getUserName().equals(this.userName)
 				&& login.getPassword().equals(this.password)) {
 			JOptionPane.showMessageDialog(null, "Sie sind eingeloggt", "Login",
