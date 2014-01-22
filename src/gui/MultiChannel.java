@@ -193,7 +193,6 @@ public class MultiChannel extends JFrame {
 				Email mail1 = new Email();
 				mail1.setMsgSender(textEmailSender.getText());
 				mail1.setMsgRecipient(textEmailRecipient.getText());
-				mail1.setMsgText(textAreaEmail.getText());
 				mail1.setMsgSubject(textEmailSubject.getText());
 				mail1.setMsgAttachment(textAttachmentEmail.getText());
 				// Validation for all the empty major fields
@@ -246,7 +245,7 @@ public class MultiChannel extends JFrame {
 		// MMS tab with tooltips
 		panelMms = new JPanel();
 		panelMms.setBackground(Color.LIGHT_GRAY);
-		panelMms.setToolTipText("+41 78 888 88 88");		
+		panelMms.setToolTipText("+41 78 888 88 88");
 		panelMms.setLayout(null);
 
 		// MMS Text box
@@ -339,7 +338,7 @@ public class MultiChannel extends JFrame {
 
 		// Print tab
 		panelPrint = new JPanel();
-		panelPrint.setBackground(Color.LIGHT_GRAY);		
+		panelPrint.setBackground(Color.LIGHT_GRAY);
 		panelPrint.setLayout(null);
 
 		// Choose printer
@@ -358,8 +357,7 @@ public class MultiChannel extends JFrame {
 		btnPrint.addActionListener(new ActionListener() {
 			// Validation for all the empty major fields
 			public void actionPerformed(ActionEvent e) {
-				Print print = new Print();
-				print.setMsgText(textAreaPrint.getText());
+				Print print = new Print();				
 				print.setPrintAttachmnet(textAttachmentPrint.getText());
 				print.setPrintername(printerType);
 				if (textAreaPrint.getText().trim().length() == 0) {
