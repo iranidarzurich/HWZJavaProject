@@ -407,7 +407,7 @@ public class MultiChannel extends JFrame {
 		textAreaPrint.setBounds(114, 80, 197, 82);
 		panelPrint.add(textAreaPrint);
 
-		comboBoxChoosPrinter = new JComboBox(printerName);
+		comboBoxChoosPrinter = new JComboBox<String>(printerName);
 		comboBoxChoosPrinter
 				.addPropertyChangeListener(new PropertyChangeListener() {
 					public void propertyChange(PropertyChangeEvent arg0) {
