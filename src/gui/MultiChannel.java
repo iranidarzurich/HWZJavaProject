@@ -94,7 +94,7 @@ public class MultiChannel extends JFrame {
 
 		// Tooltip for login
 		JLabel lblInputUsernameAndPassword = new JLabel(
-				"Ihr Username und Passwort eingeben");
+				"Username und Passwort eingeben");
 		lblInputUsernameAndPassword.setBounds(99, 104, 275, 14);
 		panelLogin.add(lblInputUsernameAndPassword);
 
@@ -145,7 +145,6 @@ public class MultiChannel extends JFrame {
 		// Email Tab
 		panelEmail = new JPanel();
 		panelEmail.setBackground(Color.LIGHT_GRAY);
-		// basePane.addTab("Email", null, panelEmail, null);
 		panelEmail.setLayout(null);
 
 		// Email text box with tooltips
@@ -173,17 +172,17 @@ public class MultiChannel extends JFrame {
 		textAreaEmail.setBounds(126, 138, 199, 117);
 		panelEmail.add(textAreaEmail);
 
-		JLabel labelAbsender = new JLabel("Absender");
-		labelAbsender.setBounds(10, 14, 86, 14);
-		panelEmail.add(labelAbsender);
+		JLabel labelSender = new JLabel("Absender");
+		labelSender.setBounds(10, 14, 86, 14);
+		panelEmail.add(labelSender);
 
 		JLabel lblRecipient = new JLabel("Empfänger");
 		lblRecipient.setBounds(10, 45, 86, 14);
 		panelEmail.add(lblRecipient);
 
-		JLabel lblEmailBetreff = new JLabel("Betreff");
-		lblEmailBetreff.setBounds(10, 76, 86, 14);
-		panelEmail.add(lblEmailBetreff);
+		JLabel lblEmailSubject = new JLabel("Betreff");
+		lblEmailSubject.setBounds(10, 76, 86, 14);
+		panelEmail.add(lblEmailSubject);
 
 		// Email Tab, send button
 		JButton btnSenden = new JButton("Senden");
@@ -247,8 +246,7 @@ public class MultiChannel extends JFrame {
 		// MMS tab with tooltips
 		panelMms = new JPanel();
 		panelMms.setBackground(Color.LIGHT_GRAY);
-		panelMms.setToolTipText("+41 78 888 88 88");
-		// basePane.addTab("MMS", null, panelMms, null);
+		panelMms.setToolTipText("+41 78 888 88 88");		
 		panelMms.setLayout(null);
 
 		// MMS Text box
@@ -277,9 +275,9 @@ public class MultiChannel extends JFrame {
 		textAreaMms.setBounds(150, 101, 209, 71);
 		panelMms.add(textAreaMms);
 
-		JLabel labelTelNRAbsender = new JLabel("TelNr. Absender");
-		labelTelNRAbsender.setBounds(10, 14, 105, 14);
-		panelMms.add(labelTelNRAbsender);
+		JLabel labelTelNR_Sender = new JLabel("TelNr. Absender");
+		labelTelNR_Sender.setBounds(10, 14, 105, 14);
+		panelMms.add(labelTelNR_Sender);
 
 		JLabel labelTelNrRecipientMms = new JLabel("TelNr. Empfänger");
 		labelTelNrRecipientMms.setBounds(10, 42, 105, 14);
@@ -326,31 +324,30 @@ public class MultiChannel extends JFrame {
 		});
 
 		// MMS attachment button
-		JLabel lblAnhang = new JLabel("Anhang");
-		lblAnhang.setBounds(10, 67, 67, 14);
-		panelMms.add(lblAnhang);
+		JLabel lblAttachment = new JLabel("Anhang");
+		lblAttachment.setBounds(10, 67, 67, 14);
+		panelMms.add(lblAttachment);
 		button.setBounds(150, 183, 89, 23);
 		panelMms.add(button);
 
 		// MMS send button
 		Attachment newAtt2 = new Attachment(textAttachmentMms);
-		JButton btnAnhangMms = new JButton("Anhang");
-		btnAnhangMms.addActionListener(newAtt2);
-		btnAnhangMms.setBounds(270, 70, 89, 23);
-		panelMms.add(btnAnhangMms);
+		JButton btnAttachmentMms = new JButton("Anhang");
+		btnAttachmentMms.addActionListener(newAtt2);
+		btnAttachmentMms.setBounds(270, 70, 89, 23);
+		panelMms.add(btnAttachmentMms);
 
 		// Print tab
 		panelPrint = new JPanel();
-		panelPrint.setBackground(Color.LIGHT_GRAY);
-		// basePane.addTab("Print", null, panelPrint, null);
+		panelPrint.setBackground(Color.LIGHT_GRAY);		
 		panelPrint.setLayout(null);
 
 		// Choose printer
-		JLabel lblTextDrucker = new JLabel("Text");
-		lblTextDrucker.setBounds(27, 80, 46, 14);
-		panelPrint.add(lblTextDrucker);
+		JLabel lblTextPrinter = new JLabel("Text");
+		lblTextPrinter.setBounds(27, 80, 46, 14);
+		panelPrint.add(lblTextPrinter);
 
-		JLabel lblPrinterchooser = new JLabel("Drucker Ausw\u00E4hlen");
+		JLabel lblPrinterchooser = new JLabel("Drucker auswählen");
 		lblPrinterchooser.setBounds(27, 24, 112, 14);
 		panelPrint.add(lblPrinterchooser);
 
@@ -396,13 +393,13 @@ public class MultiChannel extends JFrame {
 		textAttachmentPrint.setColumns(10);
 
 		// Attachment button
-		JButton btnPrintAnhang = new JButton("Anhang");
+		JButton btnPrintAttachment = new JButton("Anhang");
 		Attachment newAtt3 = new Attachment(textAttachmentPrint);
-		btnPrintAnhang.addActionListener(newAtt3);
+		btnPrintAttachment.addActionListener(newAtt3);
 
-		btnPrintAnhang.setActionCommand("Anhang");
-		btnPrintAnhang.setBounds(222, 48, 89, 23);
-		panelPrint.add(btnPrintAnhang);
+		btnPrintAttachment.setActionCommand("Anhang");
+		btnPrintAttachment.setBounds(222, 48, 89, 23);
+		panelPrint.add(btnPrintAttachment);
 
 		// Text box with Tooltip
 		textAreaPrint = new JTextArea();
@@ -431,7 +428,6 @@ public class MultiChannel extends JFrame {
 		// SMS tab
 		panelSms = new JPanel();
 		panelSms.setBackground(Color.LIGHT_GRAY);
-		// basePane.addTab("SMS", null, panelSms, null);
 		panelSms.setLayout(null);
 
 		// SMS text box with tooltips
@@ -448,9 +444,9 @@ public class MultiChannel extends JFrame {
 		panelSms.add(textSmsRecipient);
 		textSmsRecipient.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("TelNr. Absender");
-		lblNewLabel.setBounds(10, 14, 105, 14);
-		panelSms.add(lblNewLabel);
+		JLabel lblTelNrSender = new JLabel("TelNr. Absender");
+		lblTelNrSender.setBounds(10, 14, 105, 14);
+		panelSms.add(lblTelNrSender);
 
 		JLabel lblTelNrRecipientSms = new JLabel("TelNr. Empfänger");
 		lblTelNrRecipientSms.setBounds(10, 45, 105, 14);
@@ -461,10 +457,10 @@ public class MultiChannel extends JFrame {
 		panelSms.add(lblSmsText);
 
 		// SMS send button
-		JButton btnSMSSenden = new JButton("Senden");
-		btnSMSSenden.setBounds(151, 171, 89, 23);
-		panelSms.add(btnSMSSenden);
-		btnSMSSenden.addActionListener(new ActionListener() {
+		JButton btnSmsSend = new JButton("Senden");
+		btnSmsSend.setBounds(151, 171, 89, 23);
+		panelSms.add(btnSmsSend);
+		btnSmsSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				SMS sms1 = new SMS();
 				sms1.setMsgSender(textSmsSender.getText());
