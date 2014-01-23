@@ -114,6 +114,7 @@ public class MultiChannel extends JFrame {
 		passwordLogin = new JPasswordField();
 		passwordLogin.setBounds(168, 165, 120, 20);
 		panelLogin.add(passwordLogin);
+
 		// Login tab, button
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setBounds(168, 207, 120, 23);
@@ -124,6 +125,7 @@ public class MultiChannel extends JFrame {
 				Login login = new Login();
 				login.setUserName(textUsername.getText());
 				login.setPassword(passwordLogin.getText());
+
 				// Validation Login tab
 				if (textUsername.getText().trim().length() == 0
 						|| passwordLogin.getText().length() == 0) {
@@ -140,8 +142,8 @@ public class MultiChannel extends JFrame {
 					}
 				}
 			}
-
 		});
+
 		// Email Tab
 		panelEmail = new JPanel();
 		panelEmail.setBackground(Color.LIGHT_GRAY);
@@ -189,12 +191,12 @@ public class MultiChannel extends JFrame {
 		btnSenden.setBounds(126, 266, 89, 23);
 		btnSenden.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
 				Email mail1 = new Email();
 				mail1.setMsgSender(textEmailSender.getText());
 				mail1.setMsgRecipient(textEmailRecipient.getText());
 				mail1.setMsgSubject(textEmailSubject.getText());
 				mail1.setMsgAttachment(textAttachmentEmail.getText());
+
 				// Validation for all the empty major fields
 				if (textEmailSender.getText().trim().length() == 0
 						|| textEmailRecipient.getText().trim().length() == 0) {
@@ -203,11 +205,11 @@ public class MultiChannel extends JFrame {
 									null,
 									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
-
 				}
-				// Message after successfully send an Email
-				else {
 
+				// Create log, message after send message and clear fields after
+				// sending
+				else {
 					mail1.createLog();
 					JOptionPane
 							.showMessageDialog(
@@ -219,7 +221,6 @@ public class MultiChannel extends JFrame {
 					textAreaEmail.setText("");
 					textEmailSubject.setText("");
 					textAttachmentEmail.setText("");
-
 				}
 			}
 		});
@@ -234,6 +235,7 @@ public class MultiChannel extends JFrame {
 		textAttachmentEmail.setBounds(126, 104, 99, 20);
 		panelEmail.add(textAttachmentEmail);
 		textAttachmentEmail.setColumns(10);
+
 		// Email Attachment button
 		JButton btnAnhang = new JButton("Anhang");
 		btnAnhang.setBounds(235, 104, 89, 23);
@@ -289,6 +291,7 @@ public class MultiChannel extends JFrame {
 		// MMS send button
 		JButton button = new JButton("Senden");
 		button.addActionListener(new ActionListener() {
+
 			// Validation for the empty important fields
 			public void actionPerformed(ActionEvent e) {
 				MMS mms1 = new MMS();
@@ -296,6 +299,7 @@ public class MultiChannel extends JFrame {
 				mms1.setMsgRecipient(textMmsRecipient.getText());
 				mms1.setMsgText(textAreaMms.getText());
 				mms1.setMmsAttachment(textAttachmentMms.getText());
+
 				// Validation for all the empty major fields
 				if (textMmsSender.getText().trim().length() == 0
 						|| textMmsRecipient.getText().trim().length() == 0) {
@@ -305,9 +309,10 @@ public class MultiChannel extends JFrame {
 									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
 				}
-				// Message after successfully send an MMS
-				else {
 
+				// Create log, message after send message and clear fields after
+				// sending
+				else {
 					mms1.createLog();
 					JOptionPane
 							.showMessageDialog(
@@ -317,7 +322,6 @@ public class MultiChannel extends JFrame {
 					textMmsRecipient.setText("");
 					textAreaMms.setText("");
 					textAttachmentMms.setText("");
-
 				}
 			}
 		});
@@ -355,9 +359,10 @@ public class MultiChannel extends JFrame {
 		btnPrint.setBounds(113, 173, 89, 23);
 		panelPrint.add(btnPrint);
 		btnPrint.addActionListener(new ActionListener() {
+
 			// Validation for all the empty major fields
 			public void actionPerformed(ActionEvent e) {
-				Print print = new Print();				
+				Print print = new Print();
 				print.setPrintAttachmnet(textAttachmentPrint.getText());
 				print.setPrintername(printerType);
 				if (textAreaPrint.getText().trim().length() == 0) {
@@ -367,9 +372,10 @@ public class MultiChannel extends JFrame {
 									"Das Textfeld ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
 				}
-				// Message after successfully print a file
-				else {
 
+				// Create log, message after send message and clear fields after
+				// sending
+				else {
 					print.createLog();
 					JOptionPane
 							.showMessageDialog(
@@ -379,7 +385,6 @@ public class MultiChannel extends JFrame {
 									JOptionPane.INFORMATION_MESSAGE);
 					textAreaPrint.setText("");
 					textAttachmentPrint.setText("");
-
 				}
 			}
 		});
@@ -464,6 +469,7 @@ public class MultiChannel extends JFrame {
 				sms1.setMsgSender(textSmsSender.getText());
 				sms1.setMsgRecipient(textSmsRecipient.getText());
 				sms1.setMsgText(textAreaSms.getText());
+
 				// Validation for all the empty major fields
 				if (textSmsSender.getText().trim().length() == 0
 						|| textSmsRecipient.getText().trim().length() == 0) {
@@ -473,9 +479,10 @@ public class MultiChannel extends JFrame {
 									"Absender oder Empfänger ist leer\nBitte kontrollieren Sie es noch einmal",
 									"leere Felder", JOptionPane.ERROR_MESSAGE);
 				}
-				// Message after successfully send an SMS
-				else {
 
+				// Create log, message after send message and clear fields after
+				// sending
+				else {
 					sms1.createLog();
 					JOptionPane
 							.showMessageDialog(
@@ -484,7 +491,6 @@ public class MultiChannel extends JFrame {
 									"Sendung", JOptionPane.INFORMATION_MESSAGE);
 					textSmsRecipient.setText("");
 					textAreaSms.setText("");
-
 				}
 			}
 		});
@@ -494,6 +500,5 @@ public class MultiChannel extends JFrame {
 		textAreaSms.setToolTipText("Hier Text eingeben");
 		textAreaSms.setBounds(151, 71, 205, 89);
 		panelSms.add(textAreaSms);
-
 	}
 }

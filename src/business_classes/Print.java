@@ -29,5 +29,4 @@ public class Print extends Message {
 		log();
 		logger.info(sentPrint);
 	}
-
 }

@@ -23,5 +23,4 @@ public class MMS extends Message {
 				+ "\r\n";
 		logger.info(sentMMS);
 	}
-
 }
